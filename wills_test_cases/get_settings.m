@@ -39,6 +39,7 @@ function [ settings ] = get_settings()
     %settings.scm_data = 'SCM_scheme10b';    % Like scheme10 but with half the sorting rate
     %settings.scm_data = 'SCM_scheme10e';    % Like scheme10b but different switch normalized on tke/L
     %settings.scm_data = 'SCM_scheme10edt5';   % 10e with dt = 5 sec
-    settings.scm_data = 'SCM_results';
+    %settings.scm_data = 'SCM_results';
+    settings.scm_data = 'SCM_results_NewFluxes';
 
 end
