@@ -1,12 +1,18 @@
 function [folders] = get_folders()
+    %Git repository for the model source code
+    folders.model = fullfile(pwd, '..', '..', 'model');
+
+    %Contains matlab script source files
+    folders.model_src = fullfile(folders.model, 'src');
+    
     %Git repository for plotting source code
     folders.plots = fullfile(pwd, '..', '..', 'plots');
 
     %Contains matlab script source files
-    folders.src = fullfile(folders.plots, 'src');
+    folders.plots_src = fullfile(folders.plots, 'src');
     
     %Contains plotting source files
-    folders.src_plots = fullfile(folders.src, 'plots');
+    folders.plots_src_plots = fullfile(folders.plots_src, 'plots');
 
     %Contains data from Large Eddy Simulations
     folders.data_les = fullfile(folders.plots, 'data_les');
@@ -25,9 +31,11 @@ function [folders] = get_folders()
 
     %Add folders to the MATLAB path for this session
     addpath(folders.settings);
+    addpath(folders.model);
+    addpath(folders.model_src);
     addpath(folders.plots);
-    addpath(folders.src);
-    addpath(folders.src_plots);
+    addpath(folders.plots_src);
+    addpath(folders.plots_src_plots);
     addpath(folders.data_les);
     addpath(folders.data_scm);
 
