@@ -6,6 +6,6 @@
 
 clear
 
-[settings] = get_settings();
+folders = get_folders();
 
-compare_scm_to_les(settings);
+compare_scm_to_les(plot_settings(folders));

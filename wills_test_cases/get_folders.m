@@ -19,8 +19,12 @@ function [folders] = get_folders()
 
     %Folder to save rendered figures as images
     folders.images = fullfile(pwd, 'images');
+    
+    %Folder to save rendered figures as images
+    folders.settings = fullfile(pwd, 'settings');
 
     %Add folders to the MATLAB path for this session
+    addpath(folders.settings);
     addpath(folders.plots);
     addpath(folders.src);
     addpath(folders.src_plots);

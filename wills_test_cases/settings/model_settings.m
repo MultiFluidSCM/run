@@ -1,5 +1,11 @@
-function [ settings ] = get_settings()
-    [settings.folders] = get_folders();
+function settings = get_settings()
+    settings.folders = get_folders();
+    
+    settings.time = setup_time();
+    settings.grid = setup_grid();
+    settings.constants.phys = set_phys_const();
+    settings.constants.therm = set_therm_const();
+    settings.constants.param = set_param_const();
 
     % Gravitational acceleration
     settings.gravity = 9.806;
@@ -40,6 +46,12 @@ function [ settings ] = get_settings()
     %settings.scm_data = 'SCM_scheme10e';    % Like scheme10b but different switch normalized on tke/L
     %settings.scm_data = 'SCM_scheme10edt5';   % 10e with dt = 5 sec
     %settings.scm_data = 'SCM_results';
-    settings.scm_data = 'SCM_results_NewFluxes';
+    %settings.scm_data = 'SCM_results_NewFluxes';
+    %settings.scm_data = 'SCM_results_divTransfer';
+    %settings.scm_data = 'SCM_results_divTransferEntrainOnly';
+    %settings.scm_data = 'SCM_results_divTransferEntrainOnlyX4';
+    %settings.scm_data = 'SCM_results_default_dt_6';
+    %settings.scm_data = 'SCM_results_entrainW_1';
+    settings.scm_data = 'SCM_results_entrainW_1_divTransferEntrainOnly';
 
 end
