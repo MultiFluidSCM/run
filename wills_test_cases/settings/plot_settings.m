@@ -20,6 +20,9 @@ function settings = plot_settings(folders)
     % Save figures as .png files?
     settings.save_images = true;
     
+    % Render tile-based plots composed of multiply figures?
+    settings.plot_combinations = false;
+    
     % Indicate location of cloud base in 1D profiles?
     settings.indicate_cloud_base = true;
     
