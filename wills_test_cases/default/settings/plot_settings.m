@@ -21,7 +21,7 @@ function settings = plot_settings(folders)
     settings.save_images = true;
     
     % Render tile-based plots composed of multiply figures?
-    settings.plot_combinations = false;
+    settings.plot_combinations = true;
     
     % Indicate location of cloud base in 1D profiles?
     settings.indicate_cloud_base = true;

@@ -9,6 +9,11 @@ function param = set_param_const( )
 % up more gradually.
 
 param.sigma00   = 0.01;   % Background sigma2 when nothing is going on
+param.confrac   = 0.10;    % Reference updraft mass fraction
+%param.alpha_plume = 1.5;   % Constant for updraft eta and q contrast
+param.zrough    = 0.1;     % Roughness length
+
+% Default entrainment and detrainment properties
 % param.centrain  = 0.4;     % Entrainment coefficient
 % param.cdetrain  = 0.7;     % Detrainment coefficient
 param.bentrainw = 0.5;     % Factor for entrainment of w
@@ -19,9 +24,12 @@ param.bdetrainw = 1.0;     % Factor for detrainment of w
 param.bdetraint = 1.0;     % Factor for detrainment of eta
 param.bdetrainq = 1.0;     % Factor for detrainment of water
 param.bdetrainu = 1.0;     % Factor for detrainment of u and v
-param.confrac   = 0.10;    % Reference updraft mass fraction
-%param.alpha_plume = 1.5;   % Constant for updraft eta and q contrast
-param.zrough    = 0.1;     % Roughness length
+
+% Custom properties for different types of entrainment and detrainment
+param.sort = set_transfer_properties_sorting();
+param.dwdz = set_transfer_properties_dwdz();
+param.mix = set_transfer_properties_mixing();
+param.instab  = set_transfer_properties_instability();
 
 % Magic numbers - dimensional constants that are not constants
 % of nature - to be deprecated and avoided if at all possible
