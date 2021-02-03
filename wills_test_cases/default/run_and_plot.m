@@ -10,6 +10,6 @@ folders = get_folders();
 
 settings = get_settings(folders);
 
-multi_fluid_model(settings.model);
+% multi_fluid_model(settings.model);
 
 compare_scm_to_les(settings.plots);
