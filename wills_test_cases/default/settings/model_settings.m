@@ -1,11 +1,40 @@
 function settings = model_settings(folders)
     settings.folders = folders;
     
+    % Spatial discretisation
     settings.grid = set_grid();
     
+    % Temporal discretisation and limits
     settings.time = set_time(0);
     
+    % Physical constants and parameterisation settings
+    settings.constants = set_constants(settings.grid);
+    
+    % Forcing terms such as fluxes and wind speeds
+    settings.forcing = set_forcings();
+    
+    % Model switches
     settings.switches = set_approximations();
     
-    settings.constants = set_constants(settings.grid);
+    % Additional switches for on-the-fly plots
+    
+    % Master switch - set to 0 for much faster simulation time
+    settings.switches.plot = 0;
+    
+    % Switches for individual plot groups
+    settings.switches.plot_basic_fields = 0;
+    settings.switches.plot_time_series = 0;
+    settings.switches.plot_budgets = 0;
+    settings.switches.plot_turbulence = 0;
+    settings.switches.plot_ED = 0;
+    settings.switches.plot_adiabats = 0;
+    settings.switches.plot_std = 0;
+    settings.switches.plot_cloud_frac = 0;
+    settings.switches.plot_T_turb = 0;
+    settings.switches.plot_var_tend = 0;
+    settings.switches.plot_bflux = 0;
+    settings.switches.plot_bc_flux = 0;
+    settings.switches.plot_var_budgets = 0;
+    settings.switches.plot_res_time_series = 0;
+    settings.switches.plot_ql_var = 0;
 end

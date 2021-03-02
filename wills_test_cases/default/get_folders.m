@@ -42,6 +42,12 @@ function [folders] = get_folders(test_case_name)
     addpath(folders.plots_src_plots);
     addpath(folders.data_les);
     addpath(folders.data_scm);
+    addpath(fullfile(folders.model_src, 'physics'));
+    addpath(fullfile(folders.model_src, 'numerics'));
+    addpath(fullfile(folders.model_src, 'plots'));
+    addpath(fullfile(folders.model_src, 'checks'));
+    addpath(fullfile(folders.model_src, 'tests'));
+    addpath(fullfile(folders.model_src, 'utilities'));
 
     % Create folders if they do not exist
     if ~exist(folders.figures, 'dir')

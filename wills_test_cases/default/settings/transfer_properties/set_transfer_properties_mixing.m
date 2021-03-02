@@ -12,14 +12,14 @@ function param = set_transfer_properties_sorting( )
 % up more gradually.
 
 % Entrainment
-param.switch_entrain = true; 
+param.entrain = true;      % Switch for entrainment 
 param.bentrainw = 0.5;     % Factor for entrainment of w
 param.bentraint = 1.0;     % Factor for entrainment of eta
 param.bentrainq = 1.0;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 
 % Detrainment
-param.switch_detrain = true; 
+param.detrain = true;      % Switch for detrainment
 param.bdetrainw = 1.0;     % Factor for detrainment of w
 param.bdetraint = 1.0;     % Factor for detrainment of eta
 param.bdetrainq = 1.0;     % Factor for detrainment of water
