@@ -19,7 +19,7 @@ param.bentrainq = 1.0;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 
 % Detrainment
-param.detrain = false;     % Switch for detrainment
+param.detrain = true;     % Switch for detrainment
 param.bdetrainw = 0.5;     % Factor for detrainment of w
 param.bdetraint = 1.0;     % Factor for detrainment of eta
 param.bdetrainq = 1.0;     % Factor for detrainment of water

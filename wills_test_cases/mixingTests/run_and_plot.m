@@ -6,16 +6,20 @@
 
 clear
 
-b_params = [0.8,0.9];
+% b_params = [0.5,0.6,0.7,0.8,0.9,1.0];
+% b_params = [0.5,0.6,0.9,1.0];
+bw_params = [0.5,0.8,1.0];
+bt_params = [0.8,1.0];
+bu_params = [0.8,1.0];
 simulations = {};
 rmses = [];
 
-for i_bw=1:length(b_params)
-    for i_bt=1:length(b_params)
-        for i_bu=1:length(b_params)
-            bw = b_params(i_bw);
-            bt = b_params(i_bt);
-            bu = b_params(i_bu);
+for i_bw=1:length(bw_params)
+    for i_bt=1:length(bt_params)
+        for i_bu=1:length(bu_params)
+            bw = bw_params(i_bw);
+            bt = bt_params(i_bt);
+            bu = bu_params(i_bu);
             
             id_bw = strrep(num2str(bw), '.', 'p');
             id_bt = strrep(num2str(bt), '.', 'p');
@@ -36,18 +40,25 @@ for i_bw=1:length(b_params)
             settings.model.constants.param.mix.bdetraint = bt;
             settings.model.constants.param.mix.bentrainu = bu;
             settings.model.constants.param.mix.bdetrainu = bu;
-
+            
             % Run the model and plot the outputs
             try
+                pause('off');
                 multi_fluid_model(settings.model);
+                pause('on');
+            catch
+                display(datetime('now'));
+                display(join(['Simulation failed to complete: ',id]));
+                pause(1);
+            end
+            
+            if isfile(fullfile(folders.data_scm, "SCM_results.mat"))
                 rmse_cloud = compare_scm_to_les(settings.plots);
                 
+                display(datetime('now'));
                 display(join(["RMSE for cloud base and top: ", num2str(rmse_cloud)]));
                 simulations{end+1} = id;
                 rmses(end+1) = rmse_cloud;
-            catch
-                display(join(['Simulation failed to complete: ',id]));
-                pause(1);
             end
         end
     end

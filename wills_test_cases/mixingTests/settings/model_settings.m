@@ -19,12 +19,12 @@ function settings = model_settings(folders)
     % Additional switches for on-the-fly plots
     
     % Master switch - set to 0 for much faster simulation time
-    settings.switches.plot = 1;
+    settings.switches.plot = 0;
     
     % Switches for individual plot groups
     settings.switches.plot_basic_fields = 0;
     settings.switches.plot_time_series = 0;
-    settings.switches.plot_budgets = 1;
+    settings.switches.plot_budgets = 0;
     settings.switches.plot_turbulence = 0;
     settings.switches.plot_ED = 0;
     settings.switches.plot_adiabats = 0;
@@ -44,5 +44,5 @@ function settings = model_settings(folders)
     settings.switches.plot_budgets_entropy = 0;
     settings.switches.plot_budgets_water = 0;
     settings.switches.plot_budgets_tke = 0;
-    settings.switches.plot_budgets_transfers = 1;
+    settings.switches.plot_budgets_transfers = 0;
 end
