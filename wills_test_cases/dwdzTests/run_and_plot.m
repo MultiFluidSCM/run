@@ -34,12 +34,9 @@ for i_bw=1:length(bw_params)
             
             % Set up model parameters for this simulation
             settings = get_settings(folders);
-            settings.model.constants.param.mix.bentrainw = bw;
-            settings.model.constants.param.mix.bdetrainw = bw;
-            settings.model.constants.param.mix.bentraint = bt;
-            settings.model.constants.param.mix.bdetraint = bt;
-            settings.model.constants.param.mix.bentrainu = bu;
-            settings.model.constants.param.mix.bdetrainu = bu;
+            settings.model.constants.param.dwdz.bdetrainw = bw;
+            settings.model.constants.param.dwdz.bdetraint = bt;
+            settings.model.constants.param.dwdz.bdetrainu = bu;
             
             % Run the model and plot the outputs
             try
