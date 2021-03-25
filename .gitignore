@@ -1,6 +1,10 @@
 # Do not upload files compiled at runtime by Matlab
 *.asv
 
+# Matlab files
+*.fig
+*.mat
+
 # Do not upload images and figures as these can be compiled by the user
 *.fig
 *.png

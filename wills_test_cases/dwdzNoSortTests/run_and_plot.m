@@ -8,10 +8,10 @@ clear
 
 b_params = [0.5,0.6,0.7,0.8,0.9,1.0];
 b_params = [0.5,0.6,0.7];
-% b_params = [0.6];
+b_params = [0.6];
 dwdz_factors = [1.,1.25,1.5,1.75,2.0];
 dwdz_factors = [1.,1.5,2.0];
-% dwdz_factors = [2.0];
+dwdz_factors = [2.0];
 simulations = {};
 rmses = [];
 
