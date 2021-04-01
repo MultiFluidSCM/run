@@ -31,6 +31,10 @@ param.dwdz = set_transfer_properties_dwdz();
 param.mix = set_transfer_properties_mixing();
 param.instab  = set_transfer_properties_instability();
 
+% Factors to multiply the turbulent length scales by
+param.Lfactor1 = 1.0;
+param.Lfactor2 = 1.0;
+
 % Magic numbers - dimensional constants that are not constants
 % of nature - to be deprecated and avoided if at all possible
 param.tke_min   = 1e-4 ;   % Minimum permitted tke (J / kg)

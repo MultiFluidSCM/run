@@ -1,4 +1,4 @@
-function param = set_transfer_properties_sorting( )
+function param = set_transfer_properties_mixing( )
 
 % Set coefficients for entrained and detrained fluid properties for
 % mixing (turbulent) entrainment/detrainment.
