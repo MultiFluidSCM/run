@@ -29,7 +29,7 @@ function settings = model_settings(folders)
     % Switches for individual plot groups
     settings.switches.plot_basic_fields = 0;
     settings.switches.plot_time_series = 0;
-    settings.switches.plot_budgets = 1;
+    settings.switches.plot_budgets = 0;
     settings.switches.plot_turbulence = 0;
     settings.switches.plot_ED = 0;
     settings.switches.plot_adiabats = 0;
@@ -44,10 +44,10 @@ function settings = model_settings(folders)
     settings.switches.plot_ql_var = 0;
     
     % Switches for individual plots
-    settings.switches.plot_budgets_mass = 1;
-    settings.switches.plot_budgets_w = 1;
-    settings.switches.plot_budgets_entropy = 1;
+    settings.switches.plot_budgets_mass = 0;
+    settings.switches.plot_budgets_w = 0;
+    settings.switches.plot_budgets_entropy = 0;
     settings.switches.plot_budgets_water = 0;
-    settings.switches.plot_budgets_tke = 1;
-    settings.switches.plot_budgets_transfers = 1;
+    settings.switches.plot_budgets_tke = 0;
+    settings.switches.plot_budgets_transfers = 0;
 end

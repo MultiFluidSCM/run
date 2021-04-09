@@ -1,3 +1,6 @@
+# Data files
+*.dat
+
 # Do not upload files compiled at runtime by Matlab
 *.asv
 
