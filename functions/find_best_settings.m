@@ -24,6 +24,8 @@ for i=1:length(simulations)
 		simulation_ids{end+1} = simulation_id;
 		rmses(end+1) = rmse_cloud;
 	end
+    
+    % clear functions;
 end
 
 % Sort by lowest RMS error and save list and settings
