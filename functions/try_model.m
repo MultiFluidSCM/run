@@ -8,7 +8,7 @@ try
 	pause('on');
 catch
 	display(datetime('now'));
-	display(join(['Simulation failed to complete: ',id]));
+	display('Simulation failed to complete');
 	pause(1);
 end
 

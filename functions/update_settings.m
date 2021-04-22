@@ -35,14 +35,14 @@ if entrain | detrain
 		settings.model.constants.param.(transfer).("bentrain"+coefficient) = value;
 	end
 	if detrain & exist("transfer") & exist("coefficient")
-		settings.model.constants.param.(transfer).("dentrain"+coefficient) = value;
+		settings.model.constants.param.(transfer).("bdetrain"+coefficient) = value;
 	end
 end
 
 % Check if entrainment/detrainment magnitudes need to be updated
 dwdz = contains(variable_name, "dwdz");
-entrain_factor = contains(variable_name, "entrain_factor");
-detrain_factor = contains(variable_name, "detrain_factor");
+entrain_factor = contains(variable_name, "entrain factor");
+detrain_factor = contains(variable_name, "detrain factor");
 
 if dwdz & entrain_factor
 	settings.model.constants.param.dwdz.entrain_factor = value;
