@@ -32,10 +32,10 @@ param.mix = set_transfer_properties_mixing();
 param.instab  = set_transfer_properties_instability();
 
 % Factors to multiply the turbulent length scales by
-% param.Lfactor1 = 1.0;
-% param.Lfactor2 = 1.0;
-param.Lfactor1 = 0.5;
-param.Lfactor2 = 0.5;
+param.Lfactor1 = 1.0;
+param.Lfactor2 = 1.0;
+% param.Lfactor1 = 0.5;
+% param.Lfactor2 = 0.5;
 
 % Magic numbers - dimensional constants that are not constants
 % of nature - to be deprecated and avoided if at all possible

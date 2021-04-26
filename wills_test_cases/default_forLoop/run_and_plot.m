@@ -4,7 +4,7 @@ clear
 
 folders_default = get_folders("bin");
 
-load("settings_10.mat");
+load("settings_2.mat");
 if ~exist('settings', 'var')
     disp("No settings file detected, loading default settings as starting point.");
     settings = get_settings(folders_default);
@@ -24,12 +24,13 @@ bwE = sensitivity_variable("mix entrain bw", "bwMixE", 0.6, 1.0, 3);
 btE = sensitivity_variable("mix entrain bt", "btMixE", 0.6, 1.0, 3);
 bqE = sensitivity_variable("mix entrain bq", "bqMixE", 0.6, 1.0, 3);
 
-bqE = sensitivity_variable("mix entrain bq", "bqMixE", 0.5, 0.525, 50);
+bqE = sensitivity_variable("mix entrain bq", "bqMixE", 0.5, 0.525, 51);
+dwdzFacD = sensitivity_variable("dwdz detrain factor", "dwdzFacD", 1.0, 1.5, 11);
 
 % variables = [bwD, btD, bqD, bwE, btE, bqE];
 % variables = [bw, bt, bq, bu];
 % variables = [bu];
-variables = [bqE];
+variables = [dwdzFacD];
 
 settings = find_best_settings(settings, variables);
 

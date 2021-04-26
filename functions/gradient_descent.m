@@ -55,7 +55,7 @@ for i=1:iterations+1
         stochastic = rand() * iterations/(i+iterations);
         
         % Change variable value with some limits
-        variable_change = stochastic*min(max(-variable.gradient*variable.value, -0.2), 0.2);
+        variable_change = stochastic*min(max(-variable.gradient*variable.value, -0.5), 0.5);
         
         value_new = min(max(variable.value+variable_change, variable.min), variable.max);
         if value_new == variable.value

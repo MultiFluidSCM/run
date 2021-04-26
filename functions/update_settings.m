@@ -33,9 +33,15 @@ if entrain | detrain
 
 	if entrain & exist("transfer") & exist("coefficient")
 		settings.model.constants.param.(transfer).("bentrain"+coefficient) = value;
+        if contains(variable_name, "instab") & contains(variable_name, "dwdz")
+            settings.model.constants.param.instab.("bentrain"+coefficient) = value;
+        end
 	end
 	if detrain & exist("transfer") & exist("coefficient")
 		settings.model.constants.param.(transfer).("bdetrain"+coefficient) = value;
+        if contains(variable_name, "instab") & contains(variable_name, "dwdz")
+            settings.model.constants.param.instab.("bdetrain"+coefficient) = value;
+        end
 	end
 end
 
