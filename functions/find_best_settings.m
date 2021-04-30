@@ -19,7 +19,8 @@ for i=1:length(simulations)
 	
 	% If the simulation was successful, store the rms error of the cloud properties
 	if isfile(fullfile(folders.data_scm, "SCM_results.mat"))
-		rmse_cloud = compare_scm_to_les(settings.plots);
+		settings.plots.plot_individual_profiles = true;
+        rmse_cloud = compare_scm_to_les(settings.plots);
 		
 		simulation_ids{end+1} = simulation_id;
 		rmses(end+1) = rmse_cloud;
