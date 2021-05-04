@@ -8,7 +8,9 @@ clear
 
 folders = get_folders();
 
-settings = get_settings(folders);
+% Load settings and update directories so files are stored in this folder
+load("settings.mat");
+settings = update_all_settings(settings, folders, [], []);
 
 multi_fluid_model(settings.model);
 
