@@ -44,9 +44,9 @@ function settings = model_settings(folders)
     settings.switches.plot_ql_var = 0;
     
     % Switches for individual plots
-    settings.switches.plot_budgets_mass = 1;
-    settings.switches.plot_budgets_w = 1;
-    settings.switches.plot_budgets_entropy = 1;
+    settings.switches.plot_budgets_mass = 0;
+    settings.switches.plot_budgets_w = 0;
+    settings.switches.plot_budgets_entropy = 0;
     settings.switches.plot_budgets_water = 0;
     settings.switches.plot_budgets_tke = 1;
     settings.switches.plot_budgets_transfers = 1;

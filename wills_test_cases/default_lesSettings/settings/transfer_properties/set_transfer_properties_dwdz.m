@@ -14,18 +14,18 @@ function param = set_transfer_properties_dwdz( )
 % Entrainment
 param.entrain = false;     % Switch for entrainment
 param.entrain_factor = 1;  % Multiply -dw/dz by this factor
-param.bentrainw = 0.5;     % Factor for entrainment of w
+param.bentrainw = 1.0;     % Factor for entrainment of w
 param.bentraint = 1.0;     % Factor for entrainment of eta
 param.bentrainq = 1.0;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 
 % Detrainment
-param.detrain = false;     % Switch for detrainment
+param.detrain = true;     % Switch for detrainment
 param.detrain_factor = 1;  % Multiply -dw/dz by this factor
-param.bdetrainw = 0.7;     % Factor for detrainment of w
-param.bdetraint = 1.0;     % Factor for detrainment of eta
-param.bdetrainq = 0.8;     % Factor for detrainment of water
-param.bdetrainu = 0.7;     % Factor for detrainment of u and v
+param.bdetrainw = 0.9;     % Factor for detrainment of w
+param.bdetraint = 0.9;     % Factor for detrainment of eta
+param.bdetrainq = 0.9;     % Factor for detrainment of water
+param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 
 end
 

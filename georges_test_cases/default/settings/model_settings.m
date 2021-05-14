@@ -48,6 +48,6 @@ function settings = model_settings(folders)
     settings.switches.plot_budgets_w = 0;
     settings.switches.plot_budgets_entropy = 0;
     settings.switches.plot_budgets_water = 0;
-    settings.switches.plot_budgets_tke = 0;
+    settings.switches.plot_budgets_tke = 1;
     settings.switches.plot_budgets_transfers = 1;
 end
