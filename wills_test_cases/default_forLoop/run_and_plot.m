@@ -31,15 +31,17 @@ dwdzFacD = sensitivity_variable("dwdz detrain factor", "dwdzFacD", 1.0, 2.0, 11)
 btInsE = sensitivity_variable("instab entrain bt", "btInsE", 0.8, 1.0, 3);
 bqInsE = sensitivity_variable("instab entrain bq", "bqInsE", 0.5, 1.0, 6);
 
+tkeFactorMix = sensitivity_variable("mix tkefactor", "tkeFactorMix", 0.2, 2.0, 19);
+
 % variables = [bwD, btD, bqD, bwE, btE, bqE];
 % variables = [bw, bt, bq, bu];
 % variables = [bu];
 % variables = [bqE];
-variables = [btInsE,dwdzFacD];
+variables = [tkeFactorMix];
 
 
-settings.model.constants.param.Lfactor1 = 1.;
-settings.model.constants.param.Lfactor2 = 1.;
+% settings.model.constants.param.Lfactor1 = 1.;
+% settings.model.constants.param.Lfactor2 = 1.;
 % settings.model.constants.param.dwdz.detrain_factor = 0.5;
 settings = find_best_settings(settings, variables);
 

@@ -57,6 +57,11 @@ if dwdz & detrain_factor
 	settings.model.constants.param.dwdz.detrain_factor = value;
 end
 
+% Check mixing tke coefficient
+if contains(variable_name, "tkefactor")
+    settings.model.constants.param.mix.tke_factor = value;
+end
+
 % Check if turbulent length scale magnitudes need to be updated
 if contains(variable_name, "Lfactor ")
 	settings.model.constants.param.Lfactor1 = value;
