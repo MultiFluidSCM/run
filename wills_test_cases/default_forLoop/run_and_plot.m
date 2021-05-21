@@ -24,7 +24,7 @@ btE = sensitivity_variable("mix entrain bt", "btMixE", 0.6, 1.0, 3);
 bqE = sensitivity_variable("mix entrain bq", "bqMixE", 0.6, 1.0, 3);
 
 bwDwzD = sensitivity_variable("dwdz detrain bw", "bwDwzD", 0.7, 0.8, 2);
-btDwzD = sensitivity_variable("dwdz detrain bt", "btDwzD", 0.7, 0.8, 2);
+btDwzD = sensitivity_variable("dwdz detrain bt", "btDwzD", 0.5, 1.5, 11);
 bqDwzD = sensitivity_variable("dwdz detrain bq", "bqDwzD", 0.8, 1.0, 3);
 dwdzFacD = sensitivity_variable("dwdz detrain factor", "dwdzFacD", 1.0, 2.0, 11);
 
@@ -37,7 +37,7 @@ tkeFactorMix = sensitivity_variable("mix tkefactor", "tkeFactorMix", 0.2, 2.0, 1
 % variables = [bw, bt, bq, bu];
 % variables = [bu];
 % variables = [bqE];
-variables = [tkeFactorMix];
+variables = [btDwzD];
 
 
 % settings.model.constants.param.Lfactor1 = 1.;
