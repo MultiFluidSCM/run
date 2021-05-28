@@ -16,16 +16,16 @@ end
 % bu = sensitivity_variable("mix detrain entrain bu", "buMixDE", 0.5, 1.0, 6);
 % bu = sensitivity_variable("mix detrain entrain bu", "buMixDE", 1.0, 1.0, 1);
 
-bwD = sensitivity_variable("mix detrain bw", "bwMixD", 0.6, 1.0, 3);
-btD = sensitivity_variable("mix detrain bt", "btMixD", 0.6, 1.0, 3);
-bqD = sensitivity_variable("mix detrain bq", "bqMixD", 0.6, 1.0, 3);
-bwE = sensitivity_variable("mix entrain bw", "bwMixE", 0.6, 1.0, 3);
-btE = sensitivity_variable("mix entrain bt", "btMixE", 0.6, 1.0, 3);
-bqE = sensitivity_variable("mix entrain bq", "bqMixE", 0.6, 1.0, 3);
+bwMixD = sensitivity_variable("mix detrain bw", "bwMixD", 1.1, 1.5, 5);
+btMixD = sensitivity_variable("mix detrain bt", "btMixD", 1.5, 1.5, 1);
+bqMixD = sensitivity_variable("mix detrain bq", "bqMixD", 0.6, 1.0, 3);
+bwMixE = sensitivity_variable("mix entrain bw", "bwMixE", 1.1, 1.5, 5);
+btMixE = sensitivity_variable("mix entrain bt", "btMixE", 1.5, 1.5, 1);
+bqMixE = sensitivity_variable("mix entrain bq", "bqMixE", 0.6, 1.0, 3);
 
-bwDwzD = sensitivity_variable("dwdz detrain bw", "bwDwzD", 0.7, 0.8, 2);
-btDwzD = sensitivity_variable("dwdz detrain bt", "btDwzD", 0.5, 1.5, 11);
-bqDwzD = sensitivity_variable("dwdz detrain bq", "bqDwzD", 0.8, 1.0, 3);
+bwDwzD = sensitivity_variable("dwdz detrain bw", "bwDwzD", 1.5, 1.5, 1);
+btDwzD = sensitivity_variable("dwdz detrain bt", "btDwzD", 1.5, 1.5, 1);
+bqDwzD = sensitivity_variable("dwdz detrain bq", "bqDwzD", 0.5, 2.5, 21);
 dwdzFacD = sensitivity_variable("dwdz detrain factor", "dwdzFacD", 1.0, 2.0, 11);
 
 btInsE = sensitivity_variable("instab entrain bt", "btInsE", 0.8, 1.0, 3);
@@ -37,7 +37,7 @@ tkeFactorMix = sensitivity_variable("mix tkefactor", "tkeFactorMix", 0.2, 2.0, 1
 % variables = [bw, bt, bq, bu];
 % variables = [bu];
 % variables = [bqE];
-variables = [btDwzD];
+variables = [bwMixD, bwMixE];
 
 
 % settings.model.constants.param.Lfactor1 = 1.;
