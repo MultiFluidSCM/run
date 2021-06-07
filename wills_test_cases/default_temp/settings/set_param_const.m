@@ -8,7 +8,7 @@ function param = set_param_const( )
 % It appears to be less of a problem in more realistic cases that spin
 % up more gradually.
 
-param.sigma00   = 0.01;   % Background sigma2 when nothing is going on
+param.sigma00   = 0.001;   % Background sigma2 when nothing is going on
 param.confrac   = 0.10;    % Reference updraft mass fraction
 %param.alpha_plume = 1.5;   % Constant for updraft eta and q contrast
 param.zrough    = 0.1;     % Roughness length

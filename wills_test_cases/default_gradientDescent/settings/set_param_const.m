@@ -8,7 +8,7 @@ function param = set_param_const( )
 % It appears to be less of a problem in more realistic cases that spin
 % up more gradually.
 
-param.sigma00   = 0.01;   % Background sigma2 when nothing is going on
+param.sigma00   = 0.001;   % Background sigma2 when nothing is going on
 param.confrac   = 0.10;    % Reference updraft mass fraction
 %param.alpha_plume = 1.5;   % Constant for updraft eta and q contrast
 param.zrough    = 0.1;     % Roughness length
@@ -29,6 +29,7 @@ param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 param.sort = set_transfer_properties_sorting();
 param.dwdz = set_transfer_properties_dwdz();
 param.mix = set_transfer_properties_mixing();
+param.mix_cloud = set_transfer_properties_mixing_cloud();
 param.instab  = set_transfer_properties_instability();
 
 % Factors to multiply the turbulent length scales by

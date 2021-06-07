@@ -16,7 +16,14 @@ function settings = model_settings(folders)
     % Model switches
     settings.switches = set_approximations();
     
-    % Additional switches for on-the-fly plots
+    % Continue a previous simulation using the restart file saved at the end of a model run
+    settings.restart_simulation = false;
+    settings.restart_simulation_name = 'restart_00001740';
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Additional switches for on-the-fly plots %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Master switch - set to 0 for much faster simulation time
     settings.switches.plot = 1;

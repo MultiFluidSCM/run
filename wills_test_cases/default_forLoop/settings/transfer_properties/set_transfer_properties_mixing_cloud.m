@@ -1,7 +1,7 @@
-function param = set_transfer_properties_instability( )
+function param = set_transfer_properties_mixing_cloud( )
 
 % Set coefficients for entrained and detrained fluid properties for
-% entrainment/detrainment proportional to instability (N^2).
+% mixing (turbulent) entrainment/detrainment.
 % Value of 1 means property of departed fluid does not change
 % Value of 0 means property of receiving fluid does not change
 
@@ -13,16 +13,16 @@ function param = set_transfer_properties_instability( )
 
 % Entrainment
 param.entrain = true;      % Switch for entrainment 
-param.bentrainw = 0.5;     % Factor for entrainment of w
-param.bentraint = 0.9;     % Factor for entrainment of eta
-param.bentrainq = 0.9;     % Factor for entrainment of water
+param.bentrainw = 1.2;     % Factor for entrainment of w
+param.bentraint = 1.4;     % Factor for entrainment of eta
+param.bentrainq = 0.6;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 
 % Detrainment
-param.detrain = false;     % Switch for detrainment
+param.detrain = true;      % Switch for detrainment
 param.bdetrainw = 1.0;     % Factor for detrainment of w
-param.bdetraint = 1.0;     % Factor for detrainment of eta
-param.bdetrainq = 1.0;     % Factor for detrainment of water
+param.bdetraint = 1.4;     % Factor for detrainment of eta
+param.bdetrainq = 0.9;     % Factor for detrainment of water
 param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 
 end
