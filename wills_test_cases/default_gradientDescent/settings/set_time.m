@@ -15,8 +15,6 @@ time.tstop = 52200;
 
 % Time step
 time.dt = 30.0;
-% time.dt = 15.0;
-% time.dt = 10.0;
 
 % Number of steps to take
 time.nstop = round((time.tstop - current_time)/time.dt);

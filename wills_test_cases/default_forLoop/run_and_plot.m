@@ -25,13 +25,13 @@ bqMixE = sensitivity_variable("mix entrain bq", "bqMixE", 0.6, 1.0, 3);
 
 bwDwzD = sensitivity_variable("dwdz detrain bw", "bwDwzD", 1.5, 1.5, 1);
 btDwzD = sensitivity_variable("dwdz detrain bt", "btDwzD", 1.5, 1.5, 1);
-bqDwzD = sensitivity_variable("dwdz detrain bq", "bqDwzD", 0.5, 2.5, 21);
+bqDwzD = sensitivity_variable("dwdz detrain bq", "bqDwzD", 0.5, 3.5, 31);
 dwdzFacD = sensitivity_variable("dwdz detrain factor", "dwdzFacD", 1.0, 2.0, 11);
 
 btInsE = sensitivity_variable("instab entrain bt", "btInsE", 0.8, 1.0, 3);
 bqInsE = sensitivity_variable("instab entrain bq", "bqInsE", 0.5, 1.0, 6);
 
-tkeFactorMix = sensitivity_variable("mix tkefactor", "tkeFactorMix", 0.5, 1.0, 6);
+tkeFactorMix = sensitivity_variable("mix tkefactor", "tkeFactorMix", 0.1, 2.0, 20);
 
 % variables = [bwD, btD, bqD, bwE, btE, bqE];
 % variables = [bw, bt, bq, bu];

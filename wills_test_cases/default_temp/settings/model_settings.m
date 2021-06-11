@@ -26,7 +26,7 @@ function settings = model_settings(folders)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Master switch - set to 0 for much faster simulation time
-    settings.switches.plot = 1;
+    settings.switches.plot = 0;
     
     % Type of plot output
     % 0 = output to screen

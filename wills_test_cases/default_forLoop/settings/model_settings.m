@@ -16,10 +16,17 @@ function settings = model_settings(folders)
     % Model switches
     settings.switches = set_approximations();
     
-    % Additional switches for on-the-fly plots
+    % Continue a previous simulation using the restart file saved at the end of a model run
+    settings.restart_simulation = false;
+    settings.restart_simulation_name = 'restart_00001740';
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Additional switches for on-the-fly plots %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Master switch - set to 0 for much faster simulation time
-    settings.switches.plot = 0;
+    settings.switches.plot = 1;
     
     % Type of plot output
     % 0 = output to screen
@@ -29,7 +36,7 @@ function settings = model_settings(folders)
     % Switches for individual plot groups
     settings.switches.plot_basic_fields = 0;
     settings.switches.plot_time_series = 0;
-    settings.switches.plot_budgets = 0;
+    settings.switches.plot_budgets = 1;
     settings.switches.plot_turbulence = 0;
     settings.switches.plot_ED = 0;
     settings.switches.plot_adiabats = 0;
@@ -49,5 +56,5 @@ function settings = model_settings(folders)
     settings.switches.plot_budgets_entropy = 0;
     settings.switches.plot_budgets_water = 0;
     settings.switches.plot_budgets_tke = 0;
-    settings.switches.plot_budgets_transfers = 0;
+    settings.switches.plot_budgets_transfers = 1;
 end

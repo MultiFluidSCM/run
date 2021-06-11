@@ -15,7 +15,7 @@ function settings = plot_settings(folders)
     settings.plot_original_figures = false;
     
     % Plot every vertical profile (long computation)
-    settings.plot_individual_profiles = false;
+    settings.plot_individual_profiles = true;
     
     % Save figures as .fig files?
     settings.save_figures = true;
