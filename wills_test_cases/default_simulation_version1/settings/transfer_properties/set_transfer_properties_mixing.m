@@ -11,9 +11,6 @@ function param = set_transfer_properties_mixing( )
 % It appears to be less of a problem in more realistic cases that spin
 % up more gradually.
 
-% Scaling constant
-param.tke_factor = 1;
-
 % Entrainment
 param.entrain = true;      % Switch for entrainment 
 param.bentrainw = 0.5;     % Factor for entrainment of w
