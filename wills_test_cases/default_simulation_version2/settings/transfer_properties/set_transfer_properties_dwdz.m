@@ -11,6 +11,9 @@ function param = set_transfer_properties_dwdz( )
 % It appears to be less of a problem in more realistic cases that spin
 % up more gradually.
 
+% Choose properties to transfer based on the pdf limits (not on the b coefficients below)
+param.use_pdf = false;
+
 % Entrainment
 param.entrain = false;     % Switch for entrainment
 param.entrain_factor = 1;  % Multiply -dw/dz by this factor

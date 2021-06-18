@@ -11,6 +11,9 @@ function param = set_transfer_properties_dwdz( )
 % It appears to be less of a problem in more realistic cases that spin
 % up more gradually.
 
+% Choose properties to transfer based on the pdf limits (not on the b coefficients below)
+param.use_pdf = true;
+
 % Entrainment
 param.entrain = false;     % Switch for entrainment
 param.entrain_factor = 1;  % Multiply -dw/dz by this factor
@@ -22,9 +25,9 @@ param.bentrainu = 1.0;     % Factor for detrainment of u and v
 % Detrainment
 param.detrain = true;     % Switch for detrainment
 param.detrain_factor = 1;  % Multiply -dw/dz by this factor
-param.bdetrainw = 0.8;     % Factor for detrainment of w
-param.bdetraint = 1.5;     % Factor for detrainment of eta
-param.bdetrainq = 0.8;     % Factor for detrainment of water
+param.bdetrainw = 0.5;     % Factor for detrainment of w
+param.bdetraint = 1.0;     % Factor for detrainment of eta
+param.bdetrainq = 1.0;     % Factor for detrainment of water
 param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 
 end

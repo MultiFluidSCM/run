@@ -20,13 +20,16 @@ function settings = model_settings(folders)
     settings.restart_simulation = false;
     settings.restart_simulation_name = 'restart_00001740';
     
+    % Include buoyancy correlation terms in SG fluxes
+    settings.buoy_correl_eta = 0;
+    settings.buoy_correl_q   = 0;
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Additional switches for on-the-fly plots %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Master switch - set to 0 for much faster simulation time
-    settings.switches.plot = 0;
+    settings.switches.plot = 1;
     
     % Type of plot output
     % 0 = output to screen
