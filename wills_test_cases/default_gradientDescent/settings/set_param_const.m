@@ -9,7 +9,7 @@ function param = set_param_const( )
 % up more gradually.
 
 param.sigma00    = 0.001;   % Background sigma2 when nothing is going on
-param.cld_thresh = 0.001;   % Threshold for detecting cloud base and cloud height
+param.cld_thresh = 0.002;   % Threshold for detecting cloud base and cloud height
 param.confrac    = 0.10;    % Reference updraft mass fraction
 %param.alpha_plume = 1.5;   % Constant for updraft eta and q contrast
 param.zrough     = 0.1;     % Roughness length
@@ -30,6 +30,7 @@ param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 param.sort      = set_transfer_properties_sorting();
 param.dwdz      = set_transfer_properties_dwdz();
 param.mix       = set_transfer_properties_mixing();
+param.mix_cloud = set_transfer_properties_mixing_cloud();
 param.instab    = set_transfer_properties_instability();
 
 % Factors to multiply the turbulent length scales by
@@ -37,7 +38,7 @@ param.Lfactor1 = 1.0;
 param.Lfactor2 = 1.0;
 
 % Use sigma-weighted TKE when calculating the turbulent length scales.
-param.sigma_weighted_tke = true;
+param.sigma_weighted_tke = false;
 
 % Magic numbers - dimensional constants that are not constants
 % of nature - to be deprecated and avoided if at all possible

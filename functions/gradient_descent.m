@@ -52,7 +52,8 @@ for i=1:iterations+1
         variable = variables(v);
         
         % Random factor to ensure stochastic (random) element to prevent algorithm getting "stuck"
-        stochastic = rand() * iterations/(i+iterations);
+        stochastic_factor = 0.9;
+        stochastic = ((1-stochastic_factor) + stochastic_factor*rand()) * iterations/(i+iterations);
         
         % Change variable value with some limits
         variable_change = stochastic*min(max(-variable.gradient*variable.value, -0.2), 0.2);
@@ -88,8 +89,7 @@ for i=1:iterations+1
             rmse = 1e8;
         end
         
-        variables(v).gradient = 5000*(rmse_init-rmse) / (variables(v).value - value_new);
-        
+        variables(v).gradient = 500*(rmse_init-rmse) / (variables(v).value - value_new);
         
         % Save record of rms error
         save_rmse_dat(fullfile(folders.data_scm, 'rmse.dat'), {total_id}, [rmse], [1]);

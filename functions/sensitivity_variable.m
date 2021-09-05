@@ -1,13 +1,13 @@
-function variable = sensitivity_variable(name, id, variable_min, variable_max, resolution)
+function variable = sensitivity_variable(name, id, value, sensitivities)
 % Creates a variable object which may be iterated over some range of values for e.g. sensitivity tests
 
 variable.name = name;
 variable.id = id;
-variable.variable_min = variable_min;
-variable.variable_max = variable_max;
-variable.resolution = resolution;
+variable.value_default = value;
+variable.sensitivities = sensitivities;
 
-variable.range = abs(variable_max - variable_min);
-variable.values = linspace(variable_min, variable_max, resolution);
+for i=1:length(sensitivities)
+    variable.values(i) = (1 + sensitivities(i))*variable.value_default;
+end
 
 end

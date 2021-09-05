@@ -1,4 +1,4 @@
-function settings = find_best_settings(settings, variables)
+function settings = find_best_settings(settings, variables, best_setting_id)
 
 simulations = variable_combinations(variables);
 simulation_ids = {};
@@ -33,8 +33,13 @@ end
 if length(rmses) > 0
 	[rmses_sorted, sort_indices] = sort(rmses);
 	disp(["Best result: ", simulation_ids{sort_indices(1)}, " with rmse ", num2str(rmses_sorted(1))]);
-	save_rmse_dat(fullfile(folders.root, 'rmse.dat'), simulation_ids, rmses, sort_indices);
-
+	
+    if exist('best_setting_id')
+        save_rmse_dat(fullfile(folders.root, join(['rmse_',best_setting_id,'.dat'], '')), simulation_ids, rmses, sort_indices);
+    else
+        save_rmse_dat(fullfile(folders.root, 'rmse.dat'), simulation_ids, rmses, sort_indices);
+    end
+    
 	% Save settings of best performing scheme
 	settings = update_all_settings(settings, folders, variables, simulations(:,sort_indices(1)));
 	save(fullfile(folders.root, "settings.mat"), 'settings');

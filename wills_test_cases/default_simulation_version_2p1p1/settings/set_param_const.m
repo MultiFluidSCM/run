@@ -37,6 +37,9 @@ param.instab    = set_transfer_properties_instability();
 param.Lfactor1 = 1.0;
 param.Lfactor2 = 1.0;
 
+% Constants in Mellor-Yamada_Nakanishi-Niino clousures
+param.MYNN = set_MYNN_constants();
+
 % Use sigma-weighted TKE when calculating the turbulent length scales.
 param.sigma_weighted_tke = true;
 

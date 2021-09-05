@@ -24,6 +24,9 @@ function settings = model_settings(folders)
     settings.buoy_correl_eta = 0;
     settings.buoy_correl_q   = 0;
     
+    % Times at which vertical profiles should be saved for LES comparison
+    settings.output_times = 3600*(1:14);
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Additional switches for on-the-fly plots %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

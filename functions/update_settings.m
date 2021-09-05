@@ -7,6 +7,9 @@ detrain = contains(variable_name, "detrain");
 if entrain | detrain
 	if contains(variable_name, "mix")
 		transfer = "mix";
+        if contains(variable_name, "cloud")
+            transfer = "mix_cloud";
+        end
 	end
 	if contains(variable_name, "instab")
 		transfer = "instab";
@@ -58,8 +61,11 @@ if dwdz & detrain_factor
 end
 
 % Check mixing tke coefficient
-if contains(variable_name, "tkefactor")
-    settings.model.constants.param.mix.tke_factor = value;
+if contains(variable_name, "tke1factor")
+    settings.model.constants.param.mix.tke1_factor = value;
+end
+if contains(variable_name, "tke2factor")
+    settings.model.constants.param.mix.tke2_factor = value;
 end
 
 % Check if turbulent length scale magnitudes need to be updated

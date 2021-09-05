@@ -29,6 +29,12 @@ function settings = plot_settings(folders)
     % Indicate location of cloud base in 1D profiles?
     settings.indicate_cloud_base = true;
     
+    % Times at which SCM is plotted against LES data
+    settings.times_to_plot = [32400];
+    
+    % Choose sigma weighting to minimise influence of cloud top
+    settings.sigma_weighted_rmse = false;
+    
     % File containing SCM data
     %settings.scm_data = 'SCM_scheme0';     % Basic relaxation detrainment
     %settings.scm_data = 'SCM_scheme0ug1'; % ug = 1 m/s
