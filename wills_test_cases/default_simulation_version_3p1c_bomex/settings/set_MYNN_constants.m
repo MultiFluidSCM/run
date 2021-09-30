@@ -46,10 +46,10 @@ function MYNN = set_MYNN_constants()
 % SCM July 2021
 % Note that we do not model the deviatoric part of Mij, so
 % A1 is effectively infinite while C1 = C2 = C4 = 0.
-MYNN.A1 = 1e20;
-MYNN.A2 = sqrt(0.5);
-MYNN.B1 = sqrt(8);
-MYNN.B2 = sqrt(8);
+MYNN.A1 = 0.1; %0.25*sqrt(0.5);
+MYNN.A2 = 0.1; %0.25*sqrt(0.5);
+MYNN.B1 = 24.0; %0.5*sqrt(8); %24.0;
+MYNN.B2 = 4.0; %0.5*sqrt(8);
 MYNN.C1 = 0;
 MYNN.C2 = 0;
 MYNN.C3 = 0;

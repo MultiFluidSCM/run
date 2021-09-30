@@ -9,13 +9,13 @@ forcing.ug = 10.0;
 forcing.vg = 0.0;
 
 
-forcing.t   = [      0;       1];
+forcing.t   = [      0;    3600];
 % Surface fluxes
-forcing.shf = [   8.04;    8.04];
-forcing.lhf = [130.052; 130.052];
+forcing.shf = [      0;    8.04];
+forcing.lhf = [      0; 130.052];
 % Fluxes at the top of the domain (sensible and latent heat fluxes)
-forcing.tshf = [  0;     0;     0;     0;     0;     0;     0];
-forcing.tlhf = [  0;     0;     0;     0;     0;     0;     0];
+forcing.tshf = [  0;     0;];
+forcing.tlhf = [  0;     0;];
 
 end
 

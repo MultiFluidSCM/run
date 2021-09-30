@@ -2,7 +2,7 @@
 
 clear
 
-case_study = "ARM";
+case_study = "BOMEX";
 
 folders = get_folders("data_scm", case_study);
 

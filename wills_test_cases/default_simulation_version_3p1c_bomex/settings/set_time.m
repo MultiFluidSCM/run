@@ -14,7 +14,7 @@ function time = set_time(current_time)
 time.tstop = 25200;
 
 % Time step
-time.dt = 30.0;
+time.dt = 15.0;
 
 % Number of steps to take
 time.nstop = round((time.tstop - current_time)/time.dt);

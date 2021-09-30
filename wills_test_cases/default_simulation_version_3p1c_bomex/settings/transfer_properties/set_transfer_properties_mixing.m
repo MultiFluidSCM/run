@@ -13,7 +13,7 @@ function param = set_transfer_properties_mixing( )
 
 % Scaling constant
 param.tke1_factor = 0.;%0.8;
-param.tke2_factor = 0.25;
+param.tke2_factor = 0.5;
 
 % Entrainment
 param.entrain = true;      % Switch for entrainment 
