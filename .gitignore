@@ -1,5 +1,6 @@
 # Data files
 *.dat
+*rmse.txt
 
 # Do not upload files compiled at runtime by Matlab
 *.asv

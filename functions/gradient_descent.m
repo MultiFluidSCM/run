@@ -19,6 +19,10 @@ for i=1:iterations+1
     % Update settings
     folders = get_folders(join([iteration_id,"_init"],""));
     settings = update_all_settings(settings, folders, [], []);
+    
+    % Save default settings for this iteration
+    save_settings_dat(fullfile(folders.data_scm, join(["settings_",i-1,".dat"],"")), variables);
+    save(fullfile(folders.data_scm, join(["settings_",i-1,".mat"],"")), 'settings');
 
     % Run the model, ignore errors if model crashes
     try_model(settings.model);
@@ -35,10 +39,6 @@ for i=1:iterations+1
         
         % Save record of rms errors
         save_rmse_dat(fullfile(folders.root, 'rmse.dat'), iteration_ids, rmses, 1:length(rmses));
-        
-        % Save default settings for this iteration
-        save_settings_dat(fullfile(folders.data_scm, join(["settings_",i-1,".dat"],"")), variables);
-        save(fullfile(folders.data_scm, join(["settings_",i-1,".mat"],"")), 'settings');
     else
         error("Default simulation did not complete successfully");
     end

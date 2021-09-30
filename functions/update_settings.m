@@ -80,4 +80,34 @@ if contains(variable_name, "Lfactor2")
 	settings.model.constants.param.Lfactor2 = value;
 end
 
+if contains(variable_name, "MYNN")
+    if contains(variable_name, "A1")
+        settings.model.constants.param.MYNN.A1 = value;
+    end
+    if contains(variable_name, "A2")
+        settings.model.constants.param.MYNN.A2 = value;
+    end
+    if contains(variable_name, "B1")
+        settings.model.constants.param.MYNN.B1 = value;
+    end
+    if contains(variable_name, "B2")
+        settings.model.constants.param.MYNN.B2 = value;
+    end
+    if contains(variable_name, "C1")
+        settings.model.constants.param.MYNN.C1 = value;
+    end
+    if contains(variable_name, "C2")
+        settings.model.constants.param.MYNN.C2 = value;
+    end
+    if contains(variable_name, "C3")
+        settings.model.constants.param.MYNN.C3 = value;
+    end
+    if contains(variable_name, "C4")
+        settings.model.constants.param.MYNN.C4 = value;
+    end
+    if contains(variable_name, "C5")
+        settings.model.constants.param.MYNN.C5 = value;
+    end
+end
+
 end
