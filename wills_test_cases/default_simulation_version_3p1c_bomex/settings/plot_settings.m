@@ -11,7 +11,7 @@ function settings = plot_settings(folders)
     settings.fs = 18;
 
     % Top of plots
-    settings.zplottop = 4000;
+    settings.zplottop = 2500;
     
     % Plot original set of figures from September 2020
     % Feature to be removed once other features optimised
