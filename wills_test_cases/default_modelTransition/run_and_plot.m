@@ -100,6 +100,11 @@ variables = [...
 	transition_variable("mix tke2factor",  tke2FactorMix1, tke2FactorMix2, transition_resolution)
 ];
 
+settings.model.constants.param.MYNN.A1 = 0.3;
+settings.model.constants.param.MYNN.A2 = 0.3;
+settings.model.constants.param.MYNN.B1 = 5.0;
+settings.model.constants.param.MYNN.B2 = 5.0;
+
 iteration_ids = {};
 rmses = [];
 for j=1:transition_resolution

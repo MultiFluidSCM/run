@@ -37,7 +37,7 @@ function settings = model_settings(folders)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Master switch - set to 0 for much faster simulation time
-    settings.switches.plot = 0;
+    settings.switches.plot = 1;
     
     % Type of plot output
     % 0 = output to screen
@@ -45,7 +45,7 @@ function settings = model_settings(folders)
     settings.switches.plottype = 1;
     
     % Switches for individual plot groups
-    settings.switches.plot_basic_fields    = 0;
+    settings.switches.plot_basic_fields    = 1;
     settings.switches.plot_time_series     = 0;
     settings.switches.plot_budgets         = 1;
     settings.switches.plot_turbulence      = 0;
@@ -65,8 +65,8 @@ function settings = model_settings(folders)
     settings.switches.plot_covariances     = 0;
     
     % Switches for individual plots
-    settings.switches.plot_budgets_mass      = 0;
-    settings.switches.plot_budgets_w         = 0;
+    settings.switches.plot_budgets_mass      = 1;
+    settings.switches.plot_budgets_w         = 1;
     settings.switches.plot_budgets_entropy   = 0;
     settings.switches.plot_budgets_water     = 0;
     settings.switches.plot_budgets_tke       = 0;

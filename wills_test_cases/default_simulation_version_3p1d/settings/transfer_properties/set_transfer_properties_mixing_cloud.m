@@ -15,7 +15,7 @@ function param = set_transfer_properties_mixing_cloud( )
 param.entrain = true;      % Switch for entrainment 
 param.bentrainw = 1.0;     % Factor for entrainment of w
 param.bentraint = 1.0;     % Factor for entrainment of eta
-param.bentrainq = 1.0;     % Factor for entrainment of water
+param.bentrainq = 0.0;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 
 % Detrainment

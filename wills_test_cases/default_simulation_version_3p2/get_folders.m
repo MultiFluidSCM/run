@@ -11,9 +11,6 @@ function [folders] = get_folders(test_case_id, case_study)
     % Root folder for code
     folders.root = pwd;
     
-    % Functions accessible for all test cases
-	folders.functions = fullfile(pwd, '..', '..', 'functions');
-    
     % Git repository for the model source code
     folders.model = fullfile(pwd, '..', '..', '..', 'model');
 
@@ -60,7 +57,6 @@ function [folders] = get_folders(test_case_id, case_study)
     folders.case_study = fullfile(folders.test_cases, 'case_studies', case_study);
 
     % Add folders to the MATLAB path for this session
-    addpath(folders.functions);
     addpath(folders.settings);
     addpath(folders.settings_transfer_properties);
     addpath(folders.model);

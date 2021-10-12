@@ -1,4 +1,4 @@
-function param = set_transfer_properties_mixing_cloud( )
+function param = set_transfer_properties_mixing( )
 
 % Set coefficients for entrained and detrained fluid properties for
 % mixing (turbulent) entrainment/detrainment.
@@ -11,17 +11,21 @@ function param = set_transfer_properties_mixing_cloud( )
 % It appears to be less of a problem in more realistic cases that spin
 % up more gradually.
 
+% Scaling constant
+param.tke1_factor = 0.;%0.8;
+param.tke2_factor = 0.4;
+
 % Entrainment
 param.entrain = true;      % Switch for entrainment 
-param.bentrainw = 1.0;     % Factor for entrainment of w
-param.bentraint = 1.0;     % Factor for entrainment of eta
-param.bentrainq = 1.0;     % Factor for entrainment of water
+param.bentrainw = 0.8;     % Factor for entrainment of w
+param.bentraint = 0.8;     % Factor for entrainment of eta
+param.bentrainq = 0.0;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 
 % Detrainment
 param.detrain = true;      % Switch for detrainment
-param.bdetrainw = 1.0;     % Factor for detrainment of w
-param.bdetraint = 1.0;     % Factor for detrainment of eta
+param.bdetrainw = 0.8;     % Factor for detrainment of w
+param.bdetraint = 0.8;     % Factor for detrainment of eta
 param.bdetrainq = 1.0;     % Factor for detrainment of water
 param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 

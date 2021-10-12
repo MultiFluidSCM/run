@@ -16,8 +16,6 @@ function settings = model_settings(folders)
     % Physical constants and parameterisation settings
     settings.constants = set_constants(settings.grid);
     
-    
-    
     % Model switches
     settings.switches = set_approximations();
     

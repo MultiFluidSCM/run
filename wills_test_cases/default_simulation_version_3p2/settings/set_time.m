@@ -11,11 +11,10 @@ function time = set_time(current_time)
 % 11 hours = 39600;
 % 12 hours = 43200;
 % 14.5 hours = 52200;
-time.tstop = 25200;
+time.tstop = 52200;
 
 % Time step
 time.dt = 30.0;
-time.dt = 5.0;
 
 % Number of steps to take
 time.nstop = round((time.tstop - current_time)/time.dt);

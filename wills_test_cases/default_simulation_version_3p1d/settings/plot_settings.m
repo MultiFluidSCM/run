@@ -33,15 +33,13 @@ function settings = plot_settings(folders)
     settings.indicate_cloud_base = true;
     
     % Times at which SCM is plotted against LES data
-    settings.times_to_plot = [32400];
-    
-    % Choose sigma weighting to minimise influence of cloud top
-    settings.sigma_weighted_rmse = false;
+    % settings.times_to_plot = [32400];
+    settings.times_to_plot = 3600*(1:14);
     
     % Weights of variables towards the total RMSE calculation
     settings.weights         = struct();
-    settings.weights.sigma_2 = 0;
-    settings.weights.b_2     = 0;
+    settings.weights.sigma_2 = 1;
+    settings.weights.b_2     = 1;
     settings.weights.w_2     = 1;
     settings.weights.ww_res2 = 0;
     settings.weights.ww_sg2  = 0;
@@ -49,8 +47,8 @@ function settings = plot_settings(folders)
     settings.weights.e_res2  = 0;
     settings.weights.e_sg2   = 0;
     settings.weights.q_2     = 0;
-    settings.weights.qv_2    = 0;
-    settings.weights.ql_2    = 0;
+    settings.weights.qv_2    = 1;
+    settings.weights.ql_2    = 1;
     settings.weights.cloud   = 1;
     
     % File containing SCM data
