@@ -4,11 +4,13 @@ function grid = set_grid()
 % Set up computational domain and grid
 
 % Number of levels
-nz = 60;
+% nz = 80;
+nz = 50;
 nzp = nz + 1;
 grid.nz = nz;
 
 % Top of domain
+% ztop = 4400.0;
 ztop = 3000.0;
 
 % Stretch factor for grid

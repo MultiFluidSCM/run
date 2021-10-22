@@ -2,16 +2,18 @@
 
 clear
 
-folders_default = get_folders("bin");
+case_study = "ARM";
 
-load("settings_9.mat");
+folders_default = get_folders("bin", case_study);
+
+% load("settings_9.mat");
 if ~exist('settings', 'var')
     disp("No settings file detected, loading default settings as starting point.");
     settings = get_settings(folders_default);
 end
 
 % List of fractional sensitivities relative to the default setting
-sensitivities = [-0.001, 0.001, -0.005, 0.005, -0.01, 0.01];
+sensitivities = [-0.001, 0.001, -0.005, 0., 0.005, -0.01, 0.01];
 % sensitivities = [-0.001, 0.001];
 
 bwMixE = settings.model.constants.param.mix.bentrainw;
@@ -42,41 +44,39 @@ dwdzFacD = settings.model.constants.param.dwdz.detrain_factor;
 tke1FactorMix = settings.model.constants.param.mix.tke1_factor;
 tke2FactorMix = settings.model.constants.param.mix.tke2_factor;
 
-variables = [...
-	sensitivity_variable("mix detrain bw",       "bwMixD", bwMixD, sensitivities), ...
-	sensitivity_variable("mix detrain bt",       "btMixD", btMixD, sensitivities), ...
-	sensitivity_variable("mix detrain bq",       "bqMixD", bqMixD, sensitivities), ...
-	sensitivity_variable("mix detrain bu",       "buMixD", buMixD, sensitivities), ...
-	sensitivity_variable("mix entrain bw",       "bwMixE", bwMixE, sensitivities), ...
-	sensitivity_variable("mix entrain bt",       "btMixE", btMixE, sensitivities), ...
-	sensitivity_variable("mix entrain bq",       "bqMixE", bqMixE, sensitivities), ...
-	sensitivity_variable("mix entrain bu",       "buMixE", buMixE, sensitivities), ...
-    sensitivity_variable("mix cloud detrain bw", "bwMicD", bwMicD, sensitivities), ...
-	sensitivity_variable("mix cloud detrain bt", "btMicD", btMicD, sensitivities), ...
-	sensitivity_variable("mix cloud detrain bq", "bqMicD", bqMicD, sensitivities), ...
-	sensitivity_variable("mix cloud detrain bu", "buMicD", buMicD, sensitivities), ...
-	sensitivity_variable("mix cloud entrain bw", "bwMicE", bwMicE, sensitivities), ...
-	sensitivity_variable("mix cloud entrain bt", "btMicE", btMicE, sensitivities), ...
-	sensitivity_variable("mix cloud entrain bq", "bqMicE", bqMicE, sensitivities), ...
-	sensitivity_variable("mix cloud entrain bu", "buMicE", buMicE, sensitivities), ...
-    sensitivity_variable("instab entrain bw",    "bwInsE", bwInsE, sensitivities), ...
-	sensitivity_variable("instab entrain bt",    "btInsE", btInsE, sensitivities), ...
-	sensitivity_variable("instab entrain bq",    "bqInsE", bqInsE, sensitivities), ...
-	sensitivity_variable("instab entrain bu",    "buInsE", buInsE, sensitivities), ...
-    sensitivity_variable("dwdz detrain bw",      "bwDwzD", bwDwzD, sensitivities), ...
-	sensitivity_variable("dwdz detrain bt",      "btDwzD", btDwzD, sensitivities), ...
-	sensitivity_variable("dwdz detrain bq",      "bqDwzD", bqDwzD, sensitivities), ...
-	sensitivity_variable("dwdz detrain bu",      "buDwzD", buDwzD, sensitivities), ...
-	sensitivity_variable("dwdz detrain factor",  "dwdzFacD", dwdzFacD, sensitivities), ...
-	sensitivity_variable("mix tke1factor",  "tke1FactorMix", tke1FactorMix, sensitivities), ...
-	sensitivity_variable("mix tke2factor",  "tke2FactorMix", tke2FactorMix, sensitivities)
-];
+variables = {};
+variables{end+1} = sensitivity_variable("mix detrain bw",       "bwMixD", bwMixD, sensitivities);
+variables{end+1} = sensitivity_variable("mix detrain bt",       "btMixD", btMixD, sensitivities);
+variables{end+1} = sensitivity_variable("mix detrain bq",       "bqMixD", bqMixD, sensitivities);
+variables{end+1} = sensitivity_variable("mix detrain bu",       "buMixD", buMixD, sensitivities);
+variables{end+1} = sensitivity_variable("mix entrain bw",       "bwMixE", bwMixE, sensitivities);
+variables{end+1} = sensitivity_variable("mix entrain bt",       "btMixE", btMixE, sensitivities);
+variables{end+1} = sensitivity_variable("mix entrain bq",       "bqMixE", bqMixE, sensitivities);
+variables{end+1} = sensitivity_variable("mix entrain bu",       "buMixE", buMixE, sensitivities);
+variables{end+1} = sensitivity_variable("mix cloud detrain bw", "bwMicD", bwMicD, sensitivities);
+variables{end+1} = sensitivity_variable("mix cloud detrain bt", "btMicD", btMicD, sensitivities);
+variables{end+1} = sensitivity_variable("mix cloud detrain bq", "bqMicD", bqMicD, sensitivities);
+variables{end+1} = sensitivity_variable("mix cloud detrain bu", "buMicD", buMicD, sensitivities);
+variables{end+1} = sensitivity_variable("mix cloud entrain bt", "btMicE", btMicE, sensitivities);
+variables{end+1} = sensitivity_variable("mix cloud entrain bq", "bqMicE", bqMicE, sensitivities);
+variables{end+1} = sensitivity_variable("mix cloud entrain bu", "buMicE", buMicE, sensitivities);
+variables{end+1} = sensitivity_variable("instab entrain bw",    "bwInsE", bwInsE, sensitivities);
+variables{end+1} = sensitivity_variable("instab entrain bt",    "btInsE", btInsE, sensitivities);
+variables{end+1} = sensitivity_variable("instab entrain bq",    "bqInsE", bqInsE, sensitivities);
+variables{end+1} = sensitivity_variable("instab entrain bu",    "buInsE", buInsE, sensitivities);
+variables{end+1} = sensitivity_variable("dwdz detrain bw",      "bwDwzD", bwDwzD, sensitivities);
+variables{end+1} = sensitivity_variable("dwdz detrain bt",      "btDwzD", btDwzD, sensitivities);
+variables{end+1} = sensitivity_variable("dwdz detrain bq",      "bqDwzD", bqDwzD, sensitivities);
+variables{end+1} = sensitivity_variable("dwdz detrain bu",      "buDwzD", buDwzD, sensitivities);
+variables{end+1} = sensitivity_variable("dwdz detrain factor",  "dwdzFacD", dwdzFacD, sensitivities);
+variables{end+1} = sensitivity_variable("mix tke1factor",  "tke1FactorMix", tke1FactorMix, sensitivities);
+variables{end+1} = sensitivity_variable("mix tke2factor",  "tke2FactorMix", tke2FactorMix, sensitivities);
 
 % settings.model.constants.param.Lfactor1 = 1.;
 % settings.model.constants.param.Lfactor2 = 1.;
 
 for i=1:length(variables)
-    find_best_settings(settings, [variables(i)], variables(i).id);
+    find_best_settings(settings, [variables{i}], variables{i}.id, case_study);
 end
 
 

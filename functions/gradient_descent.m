@@ -60,10 +60,10 @@ for i=1:iterations+1
         
         value_new = min(max(variable.value+variable_change, variable.min), variable.max);
         if value_new == variable.value
-            variable_change = 0.05*stochastic;
+            variable_change = 0.25*stochastic;
             value_new = min(max(variable.value+variable_change, variable.min), variable.max);
             if value_new == variable.value
-                variable_change = -0.05*stochastic;
+                variable_change = -0.25*stochastic;
                 value_new = min(max(variable.value+variable_change, variable.min), variable.max);
             end
         end

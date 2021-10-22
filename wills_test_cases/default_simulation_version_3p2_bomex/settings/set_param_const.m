@@ -45,7 +45,7 @@ param.sigma_weighted_tke = false;
 
 % Magic numbers - dimensional constants that are not constants
 % of nature - to be deprecated and avoided if at all possible
-param.tke_min   = 1e-4 ;   % Minimum permitted tke (J / kg)
+param.tke_min   = 1e-3 ;   % Minimum permitted tke (J / kg)
 param.zstar_min = 50;      % Minimum allowed boundary layer depth (m)
 
 end

@@ -8,10 +8,12 @@ function settings = model_settings(folders)
     settings.time = set_time(0);
     
     % Case study specific settings such as vertical profiles, fluxes and wind speeds
-    settings.forcing       = set_forcings();
-    settings.initial_rv    = set_initial_rv();
-    settings.initial_theta = set_initial_theta();
-    settings.initial_sigma = set_initial_sigma();
+    settings.forcing          = set_forcings();
+    settings.initial_u        = set_initial_u();
+    settings.initial_rv       = set_initial_rv();
+    settings.initial_theta    = set_initial_theta();
+    settings.initial_sigma    = set_initial_sigma();
+    settings.surface_pressure = 100000;
     
     % Physical constants and parameterisation settings
     settings.constants = set_constants(settings.grid);
@@ -30,7 +32,7 @@ function settings = model_settings(folders)
     settings.buoy_correl_q   = 0;
     
     % Times at which vertical profiles should be saved for LES comparison
-    settings.output_times = 3600*(1:14);
+    settings.output_times = 900*(1:24);
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Additional switches for on-the-fly plots %
@@ -45,7 +47,7 @@ function settings = model_settings(folders)
     settings.switches.plottype = 1;
     
     % Switches for individual plot groups
-    settings.switches.plot_basic_fields    = 0;
+    settings.switches.plot_basic_fields    = 1;
     settings.switches.plot_time_series     = 0;
     settings.switches.plot_budgets         = 1;
     settings.switches.plot_turbulence      = 0;
@@ -65,9 +67,9 @@ function settings = model_settings(folders)
     settings.switches.plot_covariances     = 0;
     
     % Switches for individual plots
-    settings.switches.plot_budgets_mass      = 0;
-    settings.switches.plot_budgets_w         = 0;
-    settings.switches.plot_budgets_entropy   = 0;
+    settings.switches.plot_budgets_mass      = 1;
+    settings.switches.plot_budgets_w         = 1;
+    settings.switches.plot_budgets_entropy   = 1;
     settings.switches.plot_budgets_water     = 0;
     settings.switches.plot_budgets_tke       = 0;
     settings.switches.plot_budgets_transfers = 1;

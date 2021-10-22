@@ -1,4 +1,4 @@
-function settings = find_best_settings(settings, variables, best_setting_id)
+function settings = find_best_settings(settings, variables, best_setting_id, case_study)
 
 simulations = variable_combinations(variables);
 simulation_ids = {};
@@ -11,7 +11,7 @@ for i=1:length(simulations)
 	pause(1);
 	
     % Update settings
-	folders = get_folders(simulation_id);
+	folders = get_folders(simulation_id, case_study);
 	settings = update_all_settings(settings, folders, variables, simulations(:,i));
 	
 	% Run the model, ignore errors if model crashes
