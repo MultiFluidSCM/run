@@ -1,15 +1,19 @@
-function [folders] = get_folders(test_case_id)
+function [folders] = get_folders(test_case_id, case_study)
     folders.id = 'default';
     if exist('test_case_id')
         folders.id = test_case_id;
     end
     
+    if ~exist('case_study')
+        case_study = 'default';
+    end
+    
     % Root folder for code
     folders.root = pwd;
     
-	% Functions accessible for all test cases
+    % Functions accessible for all test cases
 	folders.functions = fullfile(pwd, '..', '..', 'functions');
-	
+    
     % Git repository for the model source code
     folders.model = fullfile(pwd, '..', '..', '..', 'model');
 
@@ -48,11 +52,17 @@ function [folders] = get_folders(test_case_id)
     
     % Folder containing entrainment and detrainment properties
     folders.settings_transfer_properties = fullfile(folders.settings, 'transfer_properties');
+    
+    % Git repository for the test cases
+    folders.test_cases = fullfile(pwd, '..', '..', '..', 'test_cases');
+    
+    % The real-world case study used to initialise the simulation
+    folders.case_study = fullfile(folders.test_cases, 'case_studies', case_study);
 
     % Add folders to the MATLAB path for this session
+    addpath(folders.functions);
     addpath(folders.settings);
     addpath(folders.settings_transfer_properties);
-    addpath(folders.functions);
     addpath(folders.model);
     addpath(folders.model_src);
     addpath(folders.plots);
@@ -67,6 +77,7 @@ function [folders] = get_folders(test_case_id)
     addpath(fullfile(folders.model_src, 'checks'));
     addpath(fullfile(folders.model_src, 'tests'));
     addpath(fullfile(folders.model_src, 'utilities'));
+    addpath(folders.case_study);
 
     % Create folders if they do not exist
     if ~exist(folders.data_scm, 'dir')

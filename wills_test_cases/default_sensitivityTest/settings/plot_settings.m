@@ -18,7 +18,7 @@ function settings = plot_settings(folders)
     settings.plot_original_figures = false;
     
     % Plot every vertical profile (long computation)
-    settings.plot_individual_profiles = true;
+    settings.plot_individual_profiles = false;
     
     % Save figures as .fig files?
     settings.save_figures = true;
@@ -38,17 +38,17 @@ function settings = plot_settings(folders)
     
     % Weights of variables towards the total RMSE calculation
     settings.weights         = struct();
-    settings.weights.sigma_2 = 1;
-    settings.weights.b_2     = 1;
-    settings.weights.w_2     = 1;
+    settings.weights.sigma_2 = 0;
+    settings.weights.b_2     = 0;
+    settings.weights.w_2     = 0;
     settings.weights.ww_res2 = 0;
     settings.weights.ww_sg2  = 0;
-    settings.weights.e_2     = 1;
+    settings.weights.e_2     = 0;
     settings.weights.e_res2  = 0;
     settings.weights.e_sg2   = 0;
     settings.weights.q_2     = 0;
-    settings.weights.qv_2    = 1;
-    settings.weights.ql_2    = 1;
+    settings.weights.qv_2    = 0;
+    settings.weights.ql_2    = 0;
     settings.weights.cloud   = 1;
     
     % File containing SCM data

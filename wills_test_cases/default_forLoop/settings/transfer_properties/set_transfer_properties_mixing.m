@@ -12,21 +12,21 @@ function param = set_transfer_properties_mixing( )
 % up more gradually.
 
 % Scaling constant
-param.tke1_factor = 0.;
-param.tke2_factor = 0.25;
+param.tke1_factor = 0.;%0.8;
+param.tke2_factor = 0.5;
 
 % Entrainment
 param.entrain = true;      % Switch for entrainment 
-param.bentrainw = 0.9;     % Factor for entrainment of w
-param.bentraint = 0.9;     % Factor for entrainment of eta
+param.bentrainw = 1.0;     % Factor for entrainment of w
+param.bentraint = 0.7;     % Factor for entrainment of eta
 param.bentrainq = 0.5;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 
 % Detrainment
 param.detrain = true;      % Switch for detrainment
-param.bdetrainw = 0.9;     % Factor for detrainment of w
-param.bdetraint = 0.9;     % Factor for detrainment of eta
-param.bdetrainq = 0.8;     % Factor for detrainment of water
+param.bdetrainw = 1.0;     % Factor for detrainment of w
+param.bdetraint = 0.7;     % Factor for detrainment of eta
+param.bdetrainq = 1.0;     % Factor for detrainment of water
 param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 
 end

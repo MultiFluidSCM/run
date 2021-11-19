@@ -4,7 +4,6 @@ simulations = variable_combinations(variables);
 simulation_ids = {};
 rmses = [];
 
-
 for i=1:length(simulations)
 	simulation_id = construct_id(variables, simulations(:,i));
 	display(join(['Starting simulation for ', simulation_id]));
@@ -16,10 +15,12 @@ for i=1:length(simulations)
 	
 	% Run the model, ignore errors if model crashes
 	try_model(settings.model);
+	% multi_fluid_model(settings.model);
 	
 	% If the simulation was successful, store the rms error of the cloud properties
 	if isfile(fullfile(folders.data_scm, "SCM_results.mat"))
 		settings.plots.plot_individual_profiles = true;
+		% settings.plots.plot_individual_profiles = false;
         rmse_cloud = compare_scm_to_les(settings.plots);
 		
 		simulation_ids{end+1} = simulation_id;

@@ -3,6 +3,7 @@ function settings = plot_settings(folders)
     
     % Select LES data set to compare results with
     settings.test_case = "ARM_MONC";
+    % settings.test_case = "ARM_LEM";
     
     % Gravitational acceleration
     settings.gravity = 9.806;

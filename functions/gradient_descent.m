@@ -56,7 +56,9 @@ for i=1:iterations+1
         stochastic = ((1-stochastic_factor) + stochastic_factor*rand()) * iterations/(i+iterations);
         
         % Change variable value with some limits
-        variable_change = stochastic*min(max(-variable.gradient*variable.value, -0.2), 0.2);
+        gradient_factor = 1e3;
+        max_allowed_change = 0.1;
+        variable_change = stochastic*min(max(-gradient_factor*variable.gradient*variable.value, -max_allowed_change), max_allowed_change);
         
         value_new = min(max(variable.value+variable_change, variable.min), variable.max);
         if value_new == variable.value
@@ -89,7 +91,8 @@ for i=1:iterations+1
             rmse = 1e8;
         end
         
-        variables{v}.gradient = 500*(rmse_init-rmse) / (variables{v}.value - value_new);
+        drmse = rmse_init-rmse + ((rmse_init-rmse) == 0.)
+        variables{v}.gradient = (rmse_init-rmse) / (variables{v}.value - value_new);
         
         % Save record of rms error
         save_rmse_dat(fullfile(folders.data_scm, 'rmse.dat'), {total_id}, [rmse], [1]);

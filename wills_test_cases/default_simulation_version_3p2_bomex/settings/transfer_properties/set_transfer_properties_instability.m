@@ -14,7 +14,7 @@ function param = set_transfer_properties_instability( )
 % Entrainment
 param.entrain = true;      % Switch for entrainment 
 param.bentrainw = 0.6;     % Factor for entrainment of w
-param.bentraint = 1.2;     % Factor for entrainment of eta
+param.bentraint = 0.7;     % Factor for entrainment of eta
 param.bentrainq = 0.8;     % Factor for entrainment of water
 param.bentrainu = 1.0;     % Factor for detrainment of u and v
 

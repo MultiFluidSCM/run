@@ -53,10 +53,14 @@ function [folders] = get_folders(test_case_id, case_study)
     % Git repository for the test cases
     folders.test_cases = fullfile(pwd, '..', '..', '..', 'test_cases');
     
+    % Functions accessible for all test cases
+	folders.functions = fullfile(folders.test_cases, 'functions');
+    
     % The real-world case study used to initialise the simulation
     folders.case_study = fullfile(folders.test_cases, 'case_studies', case_study);
 
     % Add folders to the MATLAB path for this session
+    addpath(folders.functions);
     addpath(folders.settings);
     addpath(folders.settings_transfer_properties);
     addpath(folders.model);

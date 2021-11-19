@@ -12,7 +12,7 @@ function param = set_transfer_properties_dwdz( )
 % up more gradually.
 
 % Choose properties to transfer based on the pdf limits (not on the b coefficients below)
-param.use_pdf = false;
+param.use_pdf = true;
 
 % Entrainment
 param.entrain = false;     % Switch for entrainment

@@ -49,15 +49,23 @@ if entrain | detrain
 end
 
 % Check if entrainment/detrainment magnitudes need to be updated
-dwdz = contains(variable_name, "dwdz");
 entrain_factor = contains(variable_name, "entrain factor");
 detrain_factor = contains(variable_name, "detrain factor");
 
+dwdz = contains(variable_name, "dwdz");
 if dwdz & entrain_factor
 	settings.model.constants.param.dwdz.entrain_factor = value;
 end
 if dwdz & detrain_factor
 	settings.model.constants.param.dwdz.detrain_factor = value;
+end
+
+instab = contains(variable_name, "instab");
+if instab & entrain_factor
+	settings.model.constants.param.instab.entrain_factor = value;
+end
+if instab & detrain_factor
+	settings.model.constants.param.instab.detrain_factor = value;
 end
 
 % Check mixing tke coefficient
@@ -81,6 +89,21 @@ if contains(variable_name, "Lfactor2")
 end
 
 if contains(variable_name, "MYNN")
+    if contains(variable_name, "A ALL")
+        settings.model.constants.param.MYNN.A1 = value;
+        settings.model.constants.param.MYNN.A2 = value;
+    end
+    if contains(variable_name, "B ALL")
+        settings.model.constants.param.MYNN.B1 = value;
+        settings.model.constants.param.MYNN.B2 = value;
+    end
+    if contains(variable_name, "C ALL")
+        settings.model.constants.param.MYNN.C1 = value;
+        settings.model.constants.param.MYNN.C2 = value;
+        settings.model.constants.param.MYNN.C3 = value;
+        settings.model.constants.param.MYNN.C4 = value;
+        settings.model.constants.param.MYNN.C5 = value;
+    end
     if contains(variable_name, "A1")
         settings.model.constants.param.MYNN.A1 = value;
     end

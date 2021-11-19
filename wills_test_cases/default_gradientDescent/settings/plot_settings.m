@@ -36,13 +36,13 @@ function settings = plot_settings(folders)
     settings.times_to_plot = [32400];
     
     % Choose sigma weighting to minimise influence of cloud top
-    settings.sigma_weighted_rmse = true;
+    settings.sigma_weighted_rmse = false;
     
     % Weights of variables towards the total RMSE calculation
     settings.weights         = struct();
-    settings.weights.sigma_2 = 2;
+    settings.weights.sigma_2 = 1;
     settings.weights.b_2     = 0;
-    settings.weights.w_2     = 1;
+    settings.weights.w_2     = 0;
     settings.weights.ww_res2 = 0;
     settings.weights.ww_sg2  = 0;
     settings.weights.e_2     = 0;
