@@ -7,6 +7,11 @@ MultiFluidSCM is a two-fluid model of the atmosphere, capable of simulating vari
 - [MultiFluidSCM/plots](https://github.com/MultiFluidSCM/plots) contains the post-processing plotting tools and diagnostics, where the model outputs may be compared with LES data. New diagnostics should be added here.
 - [MultiFluidSCM/test_cases](https://github.com/MultiFluidSCM/test_cases) contains the settings files for each case study. Changes to model settings should be applied here.
 
+Other miscilaneous repositories include:
+- [MultiFluidSCM/documentation](https://github.com/MultiFluidSCM/documentation) which documents the multi-fluid equations, the numerical methods, the closures and the tuning processes.
+- [MultiFluidSCM/settings_graphics](https://github.com/MultiFluidSCM/settings_graphics)
+- [MultiFluidSCM/sensitivity_tests](https://github.com/MultiFluidSCM/sensitivity_tests) 
+
 ## Installation
 - Ensure git is installed on your machine: [Git installation guide.](https://github.com/git-guides/install-git)
 - Create a MultiFluidSCM folder
