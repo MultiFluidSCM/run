@@ -12,7 +12,6 @@ function time = set_time(current_time)
 % 12 hours = 43200;
 % 14.5 hours = 52200;
 time.tstop = 52200;
-% time.tstop = 52200*0.75;
 
 % Time step
 time.dt = 30.0;

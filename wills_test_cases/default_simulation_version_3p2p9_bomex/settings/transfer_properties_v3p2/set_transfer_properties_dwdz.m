@@ -12,7 +12,7 @@ function param = set_transfer_properties_dwdz( )
 % up more gradually.
 
 % Choose properties to transfer based on the pdf limits (not on the b coefficients below)
-param.use_pdf = false;
+param.use_pdf = true;
 
 % Entrainment
 param.entrain = false;     % Switch for entrainment
@@ -25,9 +25,9 @@ param.bentrainu = 1.0;     % Factor for detrainment of u and v
 % Detrainment
 param.detrain = true;     % Switch for detrainment
 param.detrain_factor = 1;  % Multiply -dw/dz by this factor
-param.bdetrainw = 0.5;     % Factor for detrainment of w
+param.bdetrainw = 1.0;     % Factor for detrainment of w
 param.bdetraint = 1.0;     % Factor for detrainment of eta
-param.bdetrainq = 0.9;     % Factor for detrainment of water
+param.bdetrainq = 1.0;     % Factor for detrainment of water
 param.bdetrainu = 1.0;     % Factor for detrainment of u and v
 
 end

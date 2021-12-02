@@ -2,8 +2,7 @@ function settings = plot_settings(folders)
     settings.folders = folders;
     
     % Select LES data set to compare results with
-    settings.test_case = "ARM_MONC";
-    % settings.test_case = "ARM_LEM";
+    settings.test_case = "BOMEX_MONC";
     
     % Gravitational acceleration
     settings.gravity = 9.806;
@@ -12,14 +11,14 @@ function settings = plot_settings(folders)
     settings.fs = 18;
 
     % Top of plots
-    settings.zplottop = 4000;
+    settings.zplottop = 2500;
     
     % Plot original set of figures from September 2020
     % Feature to be removed once other features optimised
     settings.plot_original_figures = false;
     
     % Plot every vertical profile (long computation)
-    settings.plot_individual_profiles = false;
+    settings.plot_individual_profiles = true;
     
     % Save figures as .fig files?
     settings.save_figures = true;
@@ -34,8 +33,7 @@ function settings = plot_settings(folders)
     settings.indicate_cloud_base = true;
     
     % Times at which SCM is plotted against LES data
-    % settings.times_to_plot = [32400];
-    settings.times_to_plot = 3600*(1:14);
+    settings.times_to_plot = 3600*(1:6);
     
     % File containing SCM data
     %settings.scm_data = 'SCM_scheme0';     % Basic relaxation detrainment

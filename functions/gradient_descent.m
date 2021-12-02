@@ -31,7 +31,8 @@ for i=1:iterations+1
     % If the simulation was successful, store the rms error of the cloud properties
     if isfile(fullfile(folders.data_scm, "SCM_results.mat"))
         settings.plots.plot_individual_profiles = true;
-        rmse_init = compare_scm_to_les(settings.plots);
+        summary = compare_scm_to_les(settings.plots);
+        rmse_init = summary.rmse;
         settings.plots.plot_individual_profiles = false;
         
         iteration_ids{end+1} = iteration_id;
@@ -86,7 +87,8 @@ for i=1:iterations+1
 
         % If the simulation was successful, store the rms error of the cloud properties
         if isfile(fullfile(folders.data_scm, "SCM_results.mat"))
-            rmse = compare_scm_to_les(settings.plots);
+            summary = compare_scm_to_les(settings.plots);
+            rmse = summary.rmse;
         else
             rmse = 1e8;
         end

@@ -33,7 +33,7 @@ forcing.tlhf = 0;
 
 % Alternative with 5-minute spin-up which helps avoid persistent problem
 % of the model crashing in the first couple of timesteps.
-forcing.t   = [0;300];
+forcing.t   = [0;120];
 forcing.shf = [0;8.04];
 forcing.lhf = [0;130.052];
 forcing.tshf = [0;0];
