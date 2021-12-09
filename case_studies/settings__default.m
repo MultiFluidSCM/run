@@ -1,15 +1,9 @@
 %--------------------------------------------------------------------------------------------------%
-% USER OPTIONS
-settings.model.restart_simulation = false;
-settings.model.restart_simulation_name = 'restart_00001740';
-
-
-%--------------------------------------------------------------------------------------------------%
 % TEMPORAL DISCRETISATION 
 
 % Simulation duration and timestep
 settings.model.time.tstart = 0;
-settings.model.time.tstop  = 14.5*3600;
+settings.model.time.tstop  = 3600;
 settings.model.time.dt = 30;
 
 
@@ -32,24 +26,28 @@ settings.model.grid.totstretch = 5.0;
 % INITIAL CONDITIONS
 
 % Initial potential temperature profile
-settings.theta_z = [    0;   520;  1480;  2000;   3000];
-settings.theta_f = [298.7; 298.7; 302.4; 308.2; 311.85];
+settings.model.initial.theta.z = 0;
+settings.model.initial.theta.f = 300;
 
 % Initial moisture profile
-settings.qv_z = [      0;     520;    1480;   2000;   3000];
-settings.qv_f = [17.0e-3; 16.3e-3; 10.7e-3; 4.2e-3; 3.0e-3];
+settings.model.initial.qv.z = 0;
+settings.model.initial.qv.f = 0;
 
 % Initial velocity profiles
-settings.u_z = [   0.;  700.; 3000.];
-settings.u_f = [-8.75; -8.75; -4.61];
-settings.v_z = [0];
-settings.v_f = [0];
-settings.w_z = [0];
-settings.w_f = [0];
+settings.model.initial.u.z = 0;
+settings.model.initial.u.f = 0;
+settings.model.initial.v.z = 0;
+settings.model.initial.v.f = 0;
+settings.model.initial.w.z = 0;
+settings.model.initial.w.f = 0;
 
 % Initial fluid 2 volume fraction profile
-settings.sigma_z = [0];
-settings.sigma_f = [0.001];
+settings.model.initial.sigma.z = 0;
+settings.model.initial.sigma.f = 0.001;
+
+% Pressure at the surface
+settings.model.surface_pressure = 100000;
+
 
 %--------------------------------------------------------------------------------------------------%
 % FORCINGS
@@ -60,33 +58,35 @@ settings.sigma_f = [0.001];
 % These are the correct BOMEX values
 
 % Geostrophic wind
-settings.ug_z = [   0;   2500];
-settings.ug_f = [-10.;   -5.5];
-settings.vg_z = [0];
-settings.vg_f = [0];
+settings.model.forcing.ug.z = 0;
+settings.model.forcing.ug.f = 0;
+settings.model.forcing.vg.z = 0;
+settings.model.forcing.vg.f = 0;
 
 % Subsidence
-settings.wsub_z = [0.;   1500.; 2500.];
-settings.wsub_f = [0.; -0.0065;    0.];
+settings.model.forcing.wsub.z = 0;
+settings.model.forcing.wsub.f = 0;
 
 % Radiative cooling
-settings.rad_z = [ 0.; 1500.; 2500.];
-settings.rad_f = [-2.;   -2.;    0.]/(24*60*60);
+settings.model.forcing.rad.z = 0;
+settings.model.forcing.rad.f = 0;
 
 % Moisture forcing
-settings.q_z = [     0.;    300.;  500.];
-settings.q_f = [-1.2e-8; -1.2e-8;    0.];
+settings.model.forcing.q.z = 0;
+settings.model.forcing.q.f = 0;
 
-% Alternative with 5-minute spin-up which helps avoid persistent problem
-% of the model crashing in the first couple of timesteps.
-settings.shf_t = [0; 120];
-settings.shf_f = [0; 8.04];
-settings.lhf_t = [0; 120];
-settings.lhf_f = [0; 130.052];
-settings.tshf_t = [0; 120];
-settings.tshf_f = [0; 0];
-settings.tlhf_t = [0; 120];
-settings.tlhf_f = [0; 0];
+% Surface sensible heat flux
+settings.model.forcing.sshf.t = 0;
+settings.model.forcing.sshf.f = 0;
+% Surface latent heat flux
+settings.model.forcing.slhf.t = 0;
+settings.model.forcing.slhf.f = 0;
+% Domain top sensible heat flux
+settings.model.forcing.tshf.t = 0;
+settings.model.forcing.tshf.f = 0;
+% Domain top latent heat flux
+settings.model.forcing.tlhf.t = 0;
+settings.model.forcing.tlhf.f = 0;
 
 
 %--------------------------------------------------------------------------------------------------%
@@ -212,7 +212,7 @@ settings.model.constants.param.dwdz.bdetrainu = 1.0;
 %-----------------------------------------------%
 % Entrainment/detrainment switches and strengths. 
 settings.model.constants.param.sort.entrain = false;
-settings.model.constants.param.sort.detrain = true;
+settings.model.constants.param.sort.detrain = false;
 settings.model.constants.param.sort.entrain_factor = 1;
 settings.model.constants.param.sort.detrain_factor = 1;
 % Factors for transferred properties
@@ -356,5 +356,61 @@ settings.model.switches.plot_budgets_transfers = 0;
 %--------------------------------------------------------------------------------------------------%
 % POST-PROCESSING PLOTTING
 
+% Select LES data set ID to compare results with
+settings.plots.test_case = "default";
+
 % Which snapshots to output from the 2FSCM
-settings.model.output_times = 3600*(1:14);
+settings.model.output_times = 3600*(1:6);
+% Which snapshots to plot vs LES
+settings.plots.times_to_plot = 3600*(1:6);
+
+% Gravitational acceleration
+settings.plots.gravity = 9.806;
+
+% Figure font size
+settings.plots.fs = 18;
+
+% Top of plots
+settings.plots.zplottop = 4000;
+
+% Plot every vertical profile (long computation)
+settings.plots.plot_individual_profiles = true;
+
+% Save figures as .fig files?
+settings.plots.save_figures = true;
+
+% Save figures as .png files?
+settings.plots.save_images = true;
+
+% Render tile-based plots composed of multiply figures?
+settings.plots.plot_combinations = true;
+
+% Indicate location of cloud base in 1D profiles?
+settings.plots.indicate_cloud_base = true;
+
+% Weights of variables towards the total RMSE calculation
+settings.plots.weights.sigma_2 = 1;
+settings.plots.weights.b_2     = 1;
+settings.plots.weights.w_2     = 1;
+settings.plots.weights.ww_res2 = 0;
+settings.plots.weights.ww_sg2  = 0;
+settings.plots.weights.e_2     = 0;
+settings.plots.weights.e_res2  = 0;
+settings.plots.weights.e_sg2   = 0;
+settings.plots.weights.q_2     = 0;
+settings.plots.weights.qv_2    = 1;
+settings.plots.weights.ql_2    = 1;
+settings.plots.weights.cloud   = 1;
+
+
+%--------------------------------------------------------------------------------------------------%
+% MISC
+settings.model.id = settings.id;
+settings.model.folders = settings.folders;
+
+settings.plots.id = settings.id;
+settings.plots.folders = settings.folders;
+
+settings.model.restart_simulation = false;
+settings.model.restart_simulation_name = 'restart_00001740';
+

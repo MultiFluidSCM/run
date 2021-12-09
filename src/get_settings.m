@@ -4,9 +4,13 @@ function settings = get_settings(case_study)
     settings.id = case_study;
     
     settings.folders = path_setup(case_study);
-
-    settings.model = model_settings(case_study, settings.folders);
     
-    settings.plots = plot_settings(case_study, settings.folders);
+    settings__default
+    
+    if case_study == "ARM"
+        settings_ARM
+    elseif case_study == "BOMEX"
+        settings_BOMEX
+    end
     
 end

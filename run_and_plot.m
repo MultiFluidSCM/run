@@ -1,5 +1,4 @@
 function run_and_plot(case_study)
-    clear
     
     if ~exist('case_study')
         case_study = "ARM";
@@ -10,7 +9,6 @@ function run_and_plot(case_study)
     
     % Read settings
     settings = get_settings(case_study);
-    default
     
     % Run the 2FSCM
     two_fluid_scm(settings.model);
