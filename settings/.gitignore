@@ -1,0 +1,6 @@
+*
+!.gitignore
+!settings__default.m
+!settings_ARM.m
+!settings_BOMEX.m
+!settings_user.m
