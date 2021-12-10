@@ -42,7 +42,19 @@ function [folder] = path_setup(case_study, folder_MultiFluidSCM)
 	folder.src = fullfile(folder.test_cases, 'src');
     
     % The real-world case study used to initialise the simulation
-    folder.case_study = fullfile(folder.test_cases, 'case_studies', case_study);
+    folder.case_studies = fullfile(folder.test_cases, 'case_studies');
+    folder.case_study = fullfile(folder.case_studies, case_study);
+
+    % Create folder if they do not exist
+    if ~exist(folder.data_scm, 'dir')
+        mkdir(folder.data_scm);
+    end
+    if ~exist(folder.figures, 'dir')
+        mkdir(folder.figures);
+    end
+    if ~exist(folder.images, 'dir')
+        mkdir(folder.images);
+    end
 
     % Add folder to the MATLAB path for this session
     addpath(genpath(folder.src));
@@ -52,17 +64,4 @@ function [folder] = path_setup(case_study, folder_MultiFluidSCM)
     addpath(genpath(folder.case_study));
     addpath(folder.data_les);
     addpath(folder.data_scm);
-
-    % Create folder if they do not exist
-    if ~exist(folder.data_scm, 'dir')
-        mkdir(folder.data_scm);
-    end
-    
-    if ~exist(folder.figures, 'dir')
-        mkdir(folder.figures);
-    end
-    
-    if ~exist(folder.images, 'dir')
-        mkdir(folder.images);
-    end
 end

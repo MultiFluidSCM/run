@@ -1,6 +1,9 @@
 # Data files
+*.nc
+*.np
+*.npz
 *.dat
-*rmse.txt
+*.txt
 
 # Do not upload files compiled at runtime by Matlab
 *.asv
