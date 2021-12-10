@@ -1,4 +1,4 @@
-function run_and_plot(case_study)
+function run_and_plot_2FSCM(case_study)
     
     if ~exist('case_study')
         case_study = "ARM";
