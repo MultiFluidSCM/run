@@ -4,7 +4,7 @@ A repository for running the [model](https://github.com/MultiFluidSCM/model) usi
 ## Overview of MultiFluidSCM
 MultiFluidSCM is a two-fluid single-column model of the atmosphere, capable of simulating dry and moist processes. The two-fluid model is based on the principle of [conditionally filtering the atmosphere into various fluid components](https://doi.org/10.1175/JAS-D-17-0130.1) in a more consistent and complete framework relative to traditional Mass Flux convection parameterizations. As such, a two-fluid model is expected to perform better than existing methods for the grey zone of convection modelling, which requires a consistent treatment of resolved and sub-grid convection. However, in a single-column form, this two-fluid model is expected to be at-least-as accurate as existing parameterizations.
 
-The two-fluid model uses a semi-implicit Eulerian discretization. The time discretization is off-centered Crank-Nicolson using an off-centering coefficient of 0.55 and a timestep of $30~$s. The spatial discretization uses a Charney-Phillips grid where pressure, density and horizontal velocities are stored at cell centres, and vertical velocity, entropy and moisture are stored at the cell faces. The system of equations is solved using a quasi-Newton method, where separate linear systems are solved for the first-order moments (with the exception of the horizontal velocity components) and the second-order moments. Splitting the solver up in this way reduces the computational cost whilst retaining the most important couplings and thus allowing the solver to converge.
+The two-fluid model uses a semi-implicit Eulerian discretization. The time discretization is off-centered Crank-Nicolson. The spatial discretization uses a Charney-Phillips grid where pressure, density and horizontal velocities are stored at cell centres, and vertical velocity, entropy and moisture are stored at the cell faces. The system of equations is solved using a quasi-Newton method, where separate linear systems are solved for the first-order moments (with the exception of the horizontal velocity components) and the second-order moments. Splitting the solver up in this way reduces the computational cost whilst retaining the most important couplings and thus allowing the solver to converge.
 
 The codebase is separated into the following repositories:
 - [MultiFluidSCM/model](https://github.com/MultiFluidSCM/model), which contains the model source code which can be treated as a black box. New model features and physics should be added here.
@@ -53,19 +53,16 @@ Create a new case study settings file named *test_cases/settings/settings_CASE_S
 
 Run the case study within MATLAB (with the MATLAB path set to *MultiFluidSCM/test_cases*) using ```run_and_plot("CASE_STUDY_NAME")```
 
-## Version control using git
-NOTE: Version control should currently only be used for the [plots](https://github.com/MultiFluidSCM/test_cases/) and [test_cases](https://github.com/MultiFluidSCM/test_cases/) repositories.
+## Adding a new model feature
+Whether it be a new model of a physical process or a new diagnostic, new features are always welcomed!
 
-
-
-### Download the latest version of the code
-Get the latest versions of a repository by navigating to your local repository (e.g. /path/to/MultiFluidSCM/plots/) and using
-```
-git pull
-```
-
-### Upload your code to merge with online version
-If you have made changes to the scripts which you would like to merge with the master code, do the following:
-- Add all modified files in the current directory using ```git add .```
-- Commit the changes with a description of the changes using ```git commit -m "Description of changes to code"```
-- Upload and merge the changes using ```git push -u origin main```
+Please use the following process when adding a new feature:
+- Go to the repository where the new feature will be implemented. For example, ```cd path/to/MultiFluidSCM/model/```.
+- Create a new branch using ```git checkout -b name-of-new-feature```.
+- Implement the new feature in the source code.
+- Ensure that backwards-compatibility is maintained by adding default values for new parameters to [```compatibility.m```](https://github.com/MultiFluidSCM/model/numerics/compatibility.m) or [```plot_compatibility.m```](https://github.com/MultiFluidSCM/plots/blob/main/src/plot_compatibility.m).
+- Also add default values for new settings to your local copy of [*test_cases/settings/settings__default.m*](https://github.com/MultiFluidSCM/test_cases/settings/settings__default.m).
+- Test with and without the new feature enabled in order to verify that everything is working as expected.
+- Push the changes to github using ```git push -u origin name-of-new-feature``` (and do the same in the test_cases repository if *settings__default.m* has been changed).
+- Create a pull request in order to merge the code with the main trunk. In the pull request, describe the changes you have made and assign a reviewer to review the feature and changes.
+- Once we're happy with the implementation, we'll merge the new feature into the main branch.
