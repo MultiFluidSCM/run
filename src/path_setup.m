@@ -11,8 +11,8 @@ function [folder] = path_setup(case_study, folder_MultiFluidSCM)
     % Root folder for the script
     folder.root = pwd;
     
-    % Git repository for the test cases
-    folder.test_cases = fullfile(folder.MultiFluidSCM, 'test_cases');
+    % Git repository for the test cases and settings
+    folder.run = fullfile(folder.MultiFluidSCM, 'run');
     
     % Git repository for the model source code
     folder.model = fullfile(folder.MultiFluidSCM, 'model');
@@ -21,7 +21,7 @@ function [folder] = path_setup(case_study, folder_MultiFluidSCM)
     folder.plots = fullfile(folder.MultiFluidSCM, 'plots');
     
     % Contains all outputs from the Two-Fluid Single Column Model
-    folder.outputs = fullfile(folder.test_cases, 'outputs');
+    folder.outputs = fullfile(folder.run, 'outputs');
     
     % Contains case-study specific data from the 2FSCM (to be output)
     folder.data_scm = fullfile(folder.outputs, case_study);
@@ -36,10 +36,10 @@ function [folder] = path_setup(case_study, folder_MultiFluidSCM)
     folder.images = fullfile(folder.data_scm, 'images');
     
     % Folder with settings for model run and plots
-    folder.settings = fullfile(folder.test_cases, 'settings');
+    folder.settings = fullfile(folder.run, 'settings');
     
     % Functions accessible for all test cases
-	folder.src = fullfile(folder.test_cases, 'src');
+	folder.src = fullfile(folder.run, 'src');
 
     % Create folder if they do not exist
     if ~exist(folder.data_scm, 'dir')
