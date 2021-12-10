@@ -40,10 +40,6 @@ function [folder] = path_setup(case_study, folder_MultiFluidSCM)
     
     % Functions accessible for all test cases
 	folder.src = fullfile(folder.test_cases, 'src');
-    
-    % The real-world case study used to initialise the simulation
-    folder.case_studies = fullfile(folder.test_cases, 'case_studies');
-    folder.case_study = fullfile(folder.case_studies, case_study);
 
     % Create folder if they do not exist
     if ~exist(folder.data_scm, 'dir')
@@ -61,7 +57,6 @@ function [folder] = path_setup(case_study, folder_MultiFluidSCM)
     addpath(genpath(folder.settings));
     addpath(genpath(folder.model));
     addpath(genpath(folder.plots));
-    addpath(genpath(folder.case_study));
     addpath(folder.data_les);
     addpath(folder.data_scm);
 end

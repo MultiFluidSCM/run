@@ -17,8 +17,8 @@ function settings = get_settings(case_study)
     if exist('settings__user')
         settings__user
     else
-        filename_settings__default = fullfile(settings.folders.case_studies, 'settings__default.m');
-        filename_settings__user    = fullfile(settings.folders.case_studies, 'settings__user.m');
+        filename_settings__default = fullfile(settings.folders.settings, 'settings__default.m');
+        filename_settings__user    = fullfile(settings.folders.settings, 'settings__user.m');
         copyfile(filename_settings__default, filename_settings__user);
     end
     
