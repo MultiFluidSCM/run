@@ -1,16 +1,18 @@
-# Test Cases for MultiFluidSCM plots
-Each persons preferred plotting settings and SCM data should go here. In future, settings for the model will also be defined here.
+# Test Cases for MultiFluidSCM
+A repository for running the [model](https://github.com/MultiFluidSCM/model) using pre-defined case studies.
 
 ## Overview
-MultiFluidSCM is a two-fluid model of the atmosphere, capable of simulating various shallow convection case studies. For the purposes of collaboration, the codebase is separated into the following repositories:
-- [MultiFluidSCM/model](https://github.com/MultiFluidSCM/model) contains the model source code which can be run as a black box. New modelling features should be added here.
-- [MultiFluidSCM/plots](https://github.com/MultiFluidSCM/plots) contains the post-processing plotting tools and diagnostics, where the model outputs may be compared with LES data. New diagnostics should be added here.
-- [MultiFluidSCM/test_cases](https://github.com/MultiFluidSCM/test_cases) contains the settings files for each case study. Changes to model settings should be applied here.
+MultiFluidSCM is a two-fluid single-column model of the atmosphere, capable of simulating dry and moist processes. The two-fluid model is based on the principle of [conditionally filtering the atmosphere into various fluid components](https://doi.org/10.1175/JAS-D-17-0130.1) in a more consistent and complete framework relative to traditional Mass Flux convection parameterizations. As such, a two-fluid model is expected to perform better than existing methods for the grey zone of convection modelling, which requires a consistent treatment of resolved and sub-grid convection. However, in a single-column form, this two-fluid model is expected to be at-least-as accurate as existing parameterizations.
 
-Other miscilaneous repositories include:
-- [MultiFluidSCM/documentation](https://github.com/MultiFluidSCM/documentation) which documents the multi-fluid equations, the numerical methods, the closures and the tuning processes.
-- [MultiFluidSCM/settings_graphics](https://github.com/MultiFluidSCM/settings_graphics)
-- [MultiFluidSCM/sensitivity_tests](https://github.com/MultiFluidSCM/sensitivity_tests) 
+The codebase is separated into the following repositories:
+- [MultiFluidSCM/model](https://github.com/MultiFluidSCM/model), which contains the model source code which can be treated as a black box. New model features and physics should be added here.
+- [MultiFluidSCM/plots](https://github.com/MultiFluidSCM/plots), which contains the post-processing plotting tools and diagnostics, where the model outputs may be compared with LES data. New diagnostics should be added here.
+- [MultiFluidSCM/test_cases](https://github.com/MultiFluidSCM/test_cases), which contains the settings files for each case study. Changes to model settings should be applied here.
+
+Other miscilaneous repositories (some of which remain private) include:
+- [MultiFluidSCM/documentation](https://github.com/MultiFluidSCM/documentation), which documents the multi-fluid equations, the numerical methods, the closures and the tuning processes.
+- [MultiFluidSCM/settings_graphics](https://github.com/MultiFluidSCM/settings_graphics), which plots the model coefficients relative to the diagnosed values from LES.
+- [MultiFluidSCM/sensitivity_tests](https://github.com/MultiFluidSCM/sensitivity_tests), which plots the model sensitivity to various tunable parameters.
 
 ## Installation
 - Ensure git is installed on your machine: [Git installation guide.](https://github.com/git-guides/install-git)
