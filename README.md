@@ -35,10 +35,10 @@ MultiFluidSCM requires [MATLAB](https://uk.mathworks.com/products/matlab.html).
 
 ### Running the model
 - Open MATLAB from inside the [test_cases](https://github.com/MultiFluidSCM/test_cases) repository.
-- In the MATLAB console, run the model using ```run_and_plot```. This will run the default case study (ARM) and plot the clouds and vertical profiles once the simulation is complete.
-- Run a different case study by specifying the case study name. For example, run the BOMEX case using ```run_and_plot("BOMEX")```.
-- Run the model without post-processing plots using ```run``` or ```run("CASE_STUDY_NAME")```.
-- If you have previously run the model and wish to re-plot the results, do so using ```plot``` or ```plot("CASE_STUDY_NAME")```. This requires the model output files to be located in [*test_cases/outputs*](https://github.com/MultiFluidSCM/test_cases/outputs).
+- In the MATLAB console, run the model using ```run_and_plot_2FSCM```. This will run the default case study (ARM) and plot the clouds and vertical profiles once the simulation is complete.
+- Run a different case study by specifying the case study name. For example, run the BOMEX case using ```run_and_plot_2FSCM("BOMEX")```.
+- Run the model without post-processing plots using ```run_2FSCM``` or ```run_2FSCM("CASE_STUDY_NAME")```.
+- If you have previously run the model and wish to re-plot the results, do so using ```plot_2FSCM``` or ```plot_2FSCM("CASE_STUDY_NAME")```. This requires the model output files to be located in [*test_cases/outputs*](https://github.com/MultiFluidSCM/test_cases/outputs).
 
 Model outputs (including data files, plots, figure files and summary statistics) are located in *MultiFluidSCM/test_cases/outputs/CASE_STUDY_NAME/*.
 
@@ -51,7 +51,7 @@ Initial conditions and forcings for case studies such as ARM and BOMEX are in th
 
 Create a new case study settings file named *test_cases/settings/settings_CASE_STUDY_NAME.m* and specify the initial conditions and forces within (using *settings__default.m* as a reference if necessary).
 
-Run the case study within MATLAB (with the MATLAB path set to *MultiFluidSCM/test_cases*) using ```run_and_plot("CASE_STUDY_NAME")```
+Run the case study within MATLAB (with the MATLAB path set to *MultiFluidSCM/test_cases*) using ```run_and_plot_2FSCM("CASE_STUDY_NAME")```
 
 ## Adding a new model feature
 Whether it be a new model of a physical process or a new diagnostic, new features are always welcomed!
