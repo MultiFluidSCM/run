@@ -57,6 +57,7 @@ Run the case study within MATLAB (with the MATLAB path set to *MultiFluidSCM/run
 Whether it be a new model of a physical process or a new diagnostic, new features are always welcomed!
 
 Please use the following process when adding a new feature:
+- (Request to be a member of the repository or organisation.)
 - Go to the repository where the new feature will be implemented. For example, ```cd path/to/MultiFluidSCM/model/```.
 - Create a new branch using ```git checkout -b name-of-new-feature```.
 - Implement the new feature in the source code.
