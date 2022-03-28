@@ -20,8 +20,7 @@ for i=1:length(simulations)
 	settings = update_all_settings(settings, folders, variables, simulations(:,i));
 	
 	% Run the model, ignore errors if model crashes
-	try_model(settings.model);
-	% multi_fluid_model(settings.model);
+	% try_model(settings.model);
 	
 	% If the simulation was successful, store the rms error of the cloud properties
 	if isfile(fullfile(folders.data_scm, "SCM_results.mat"))

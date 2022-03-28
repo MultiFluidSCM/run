@@ -21,6 +21,19 @@ settings.model.grid.nz = 50;
 % Ratio of top layer thickness to lowest layer thickness
 settings.model.grid.totstretch = 5.0;
 
+%--------------------------------------------------------------------------------------------------%
+% SOLVER SETTINGS
+
+% Default number of quasi-Newton iterations
+settings.model.solver.qn_iter_max_default = 4;
+
+% Choose to use a different number of quasi-Newton iterations for the first few timesteps.
+% The number of timesteps is determined by the integer below
+settings.model.solver.qn_start_timesteps = 0;
+
+% Number of iterations for thefirst few timesteps (based on qn_long_timesteps)
+settings.model.solver.qn_iter_max_start  = 8;
+
 
 %--------------------------------------------------------------------------------------------------%
 % INITIAL CONDITIONS
