@@ -68,4 +68,4 @@ settings.plots.test_case = "ARM_MONC";
 % Which snapshots to output from the 2FSCM
 settings.model.output_times = 3600*(1:14);
 % Which snapshots to plot vs LES
-settings.times_to_plot = 3600*(1:14);
+settings.plots.times_to_plot = 3600*(1:14);
