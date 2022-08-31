@@ -1,3 +1,5 @@
+%function settings = settings__user(settings)
+
 %--------------------------------------------------------------------------------------------------%
 % TEMPORAL DISCRETISATION 
 
@@ -429,3 +431,4 @@ settings.plots.folders = settings.folders;
 settings.model.restart_simulation = false;
 settings.model.restart_simulation_name = 'restart_00001740';
 
+%end

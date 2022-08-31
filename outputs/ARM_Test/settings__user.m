@@ -1,5 +1,3 @@
-%function settings = settings__user(settings)
-
 %--------------------------------------------------------------------------------------------------%
 % TEMPORAL DISCRETISATION 
 
@@ -131,7 +129,7 @@ settings.model.constants.param.tke_min   = 1e-4 ;
 settings.model.constants.param.zstar_min = 50;
 
 % Constants in Mellor-Yamada_Nakanishi-Niino clousures
-settings.model.constants.param.MYNN.A1 = 0.3;
+settings.model.constants.param.MYNN.A1 = 0.45;
 settings.model.constants.param.MYNN.A2 = 0.45;
 settings.model.constants.param.MYNN.B1 = 5.5;
 settings.model.constants.param.MYNN.B1 = 3.5;
@@ -430,5 +428,3 @@ settings.plots.folders = settings.folders;
 
 settings.model.restart_simulation = false;
 settings.model.restart_simulation_name = 'restart_00001740';
-
-%end
